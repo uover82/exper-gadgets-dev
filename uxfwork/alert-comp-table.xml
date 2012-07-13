@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+
+  <ModulePrefs
+      title="Alert Comparison Table Gadget"
+     description="Official Google Gadget. A simple table presenting the data of a table query result."
+      author="Google Engineering"
+      author_affiliation="Google Inc."
+      author_email="visualization.api+simple-table@gmail.com"
+      screenshot="http://www.google.com/ig/modules/simple-table.png"
+      thumbnail="http://www.google.com/ig/modules/simple-table-thm.png">
+    <Require feature="idi" />
+    <Require feature="locked-domain" />
+  </ModulePrefs>
+
+  <UserPref name="_table_query_url" display_name="Data source url" required="true"/>
+  <UserPref name="_table_query_refresh_interval" display_name="Data refresh interval (minutes)" default_value="300" datatype="enum" required="false">
+    <EnumValue value="0" display_value="Do not refresh"/>
+    <EnumValue value="60" display_value="1"/>
+    <EnumValue value="300" display_value="5"/>
+    <EnumValue value="1800" display_value="30"/>
+  </UserPref>
+  <UserPref name="disableHtml" display_name="Disable Html" datatype="bool" default_value="false"/>
+  <!--
+  This is a sample gadget, that uses the Google Visualization API to read data
+  from a data source, and displays it as an html table.
+  -->
+
+  <Content type="html"><![CDATA[
+
+  <!-- Load the Google common loader, that is later used to load the Visualization API. -->
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+  <div id="tablediv" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+
+  <script>
+    var gadgetHelper = null;
+    var table = null; 
+
+    _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+    /**
+     * Load the Google Visualization API
+     */
+    function loadVisualizationAPI() {
+      google.load("visualization", "1", {"packages": ["table"]});
+      google.setOnLoadCallback(sendQuery);
+    }
+
+    /**
+     * Create a query from the user prefs, and then send it to the data source.
+     * This method is called once the visualization API is fully loaded.
+     * Note that in the last line, a callback function is specified to be
+     * called once the response is received from the data source.
+     */
+    function sendQuery() {
+      var prefs = new _IG_Prefs(); // User preferences
+      var tableDiv = _gel('tablediv');
+      tableDiv.style.width = document.body.clientWidth + 'px';
+      tableDiv.style.height = document.body.clientHeight + 'px';
+      table = new google.visualization.Table(tableDiv);
+
+      gadgetHelper = new google.visualization.GadgetHelper();
+      var query = gadgetHelper.createQueryFromPrefs(prefs);
+      query.send(handleQueryResponse);
+    }
+
+    /**
+     * Query response handler function.
+     * Called by the Google Visualization API once the response is received.
+     * Takes the query response and formats it as a table.
+     */
+    function handleQueryResponse(response) {
+      // Use the visualization GadgetHelper class to validate the data, and
+      // for error handling.
+      if (!gadgetHelper.validateResponse(response)) {
+        // Default error handling was done, just leave.
+        return;
+      };
+      var data = response.getDataTable();
+
+      // Take the data table from the response, and format it.
+      var options = {showRowNumber: false};
+      var prefs = new _IG_Prefs(); // User preferences
+      options['allowHtml'] = !prefs.getBool("disableHtml");
+
+      formatTable( data );
+      table.draw(data, options);
+    };
+
+    /**
+     * Color format table sections/rows using end datetime column values.
+     */
+    function formatTable( data ) {
+
+      function formatSection( row_range,col_range,color ) {
+        var p;
+        for ( var i=row_range[0];i<row_range[1]&&data.getValue(i,2).length>0;i++ ) {
+          for ( var j=col_range[0];j<col_range[1];j++ ) {
+            p = '';
+            if ( i==row_range[0] )
+              p+='border-top: 1px solid black;';
+            else
+            if ( i==row_range[1]-1 )
+              p+='border-bottom: 1px solid black;';
+            if ( j==col_range[0] )
+              p+='border-left: 1px solid black;';
+            else
+            if ( j==col_range[1]-1 )
+              p+='border-right: 1px solid black;';
+            p+='background-color: '+color+';';
+            //alert( 'i:'+i+' j:'+j+' style:'+p );
+            data.setProperty( i,j,'style',p );
+          }
+        }
+      }
+
+      function formatRow( row,col_range,color ) {
+        var p;
+        for ( var i=col_range[0];i<col_range[1];i++ ) {
+          p = '';
+          if ( i==col_range[0] )
+            p+='border-left: 1px solid black;';
+          else
+          if ( i==col_range[1]-1 )
+            p+='border-right: 1px solid black;';
+          p+='border-top: 1px solid black;';
+          p+='border-bottom: 1px solid black;';
+          p+='background-color: '+color+';';
+          //alert( 'row:'+row+' i:'+i+' style:'+p );
+          data.setProperty( row,i,'style',p );
+        }
+      }
+
+      var rs = data.getNumberOfRows();
+      var cs = data.getNumberOfColumns();
+      var c,j,d,ed,td,r,tr,p,tp,u,tu,o,to,dp1;
+      for ( var i=0;i<rs&&data.getValue(i,2)!=null&&data.getValue(i,2).length>0;i++ ) {
+        c = data.getValue(i,1).replace( /-/g,"/" );
+        if ( c.length>0 ) {
+          td = new Date(c).getTime();
+          tu = data.getValue( i,2 );
+          tp = data.getValue( i,3 );
+          tr = data.getValue( i,4 );
+          for ( j=i+1;j<rs;j++ ) {
+            d = new Date(data.getValue( j,0 ).replace( /-/g,"/" )).getTime();
+            ed = data.getValue( j,1 );
+            if ( ed!=null&&ed.length==0 ) data.setValue( j,1,'.' );
+            u = data.getValue( j,2 );
+            p = data.getValue( j,3 );
+            r = data.getValue( j,4 );
+            if ( ed!=null&&ed.length>0||d>td||u!=tu||p!=tp||r!=tr ) {
+              break;
+            }
+          }
+
+          //alert( 'i:'+i+' j:'+j+' d:'+d );
+          if ( i==j-1 )
+            formatRow( i,[0,cs],'lightgreen' );
+          else
+            formatSection( [i,j],[0,cs],'gold' );
+          if ( j>i&&ed!=null&&ed.length>0 )
+            i = j-1;
+          else
+            i = j;
+          //alert ( 'u:'+u+' p:'+p+' r:'+r+' d:'+d+' td:'+td+' c:'+c );
+        }
+
+        d = new Date(data.getValue( i,0 ).replace( /-/g,"/" )).getTime();
+        dp1 = new Date(data.getValue( i+1,0 ).replace( /-/g,"/" )).getTime();
+        tu = data.getValue( i,2 );
+        tp = data.getValue( i,3 );
+        tr = data.getValue( i,4 );
+        //alert ( 'tu:'+tu+ ' u:'+u+' tp:'+tp+' p:'+p+' tr:'+tr+' r:'+r+' d:'+d+' td:'+td+' dp1:'+dp1 );
+        if ( tu==u&&tp==p&&tr==r&&d>td+16*60*1000||(tu!=u||tp!=p||tr!=r)&&d!=dp1 ) {
+          o = data.getValue( i,7 );
+          if ( o > 99 ) {
+            td = data.getValue( i,1 );
+            if ( td!=null&&td.length==0 ) {
+              data.setValue( i,1,'.' );
+              td = 0;
+            }
+            tu = data.getValue( i,2 );
+            tp = data.getValue( i,3 );
+            tr = data.getValue( i,4 );
+            to = data.getValue( i,7 );
+            for ( j=i+1;j<rs;j++ ) {
+              ed = data.getValue( j,1 );
+              if ( ed!=null&&ed.length==0 ) data.setValue( j,1,'.' );
+              u = data.getValue( j,2 );
+              p = data.getValue( j,3 );
+              r = data.getValue( j,4 );
+              o = data.getValue( j,7 );
+              if ( ed!=null&&ed.length>0||u!=tu||p!=tp||r!=tr||o<100 ) {
+                break;
+              }
+            }
+  
+            //alert( 'i:'+i+' j:'+j+' d:'+d+' o:'+o );
+            if ( i==j-1 )
+              formatRow( i,[0,cs],'cornflowerblue' );
+            else
+              formatSection( [i,j],[0,cs],'cornflowerblue' );
+            if ( j>i&&ed!=null&&ed.length>0 )
+              i = j-1;
+            else
+              i = j;
+          }
+        }
+      }
+    };
+
+  </script>
+
+  ]]>
+  </Content>
+</Module>

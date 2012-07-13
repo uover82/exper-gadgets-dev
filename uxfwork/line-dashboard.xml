@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+
+  <ModulePrefs
+      title="__MSG_title_lineChart__"
+      description="__MSG_line_description__"
+      author="Google Engineering"
+      author_affiliation="Google Inc."
+      author_email="visualization.api+line-chart@gmail.com"
+      screenshot="http://www.google.com/ig/modules/line-chart.png"
+      thumbnail="http://www.google.com/ig/modules/line-chart-thm.png">
+    <Require feature="settitle" />
+    <Require feature="idi" />
+    <Require feature="locked-domain" />
+    <Locale messages="http://www.google.com/ig/modules/chart_content/en_ALL.xml" />
+    <Locale lang="ar" messages="http://www.google.com/ig/modules/chart_content/ar_ALL.xml" language_direction="rtl" />
+    <Locale lang="bg" messages="http://www.google.com/ig/modules/chart_content/bg_ALL.xml" />
+    <Locale lang="ca" messages="http://www.google.com/ig/modules/chart_content/ca_ALL.xml" />
+    <Locale lang="cs" messages="http://www.google.com/ig/modules/chart_content/cs_ALL.xml" />
+    <Locale lang="da" messages="http://www.google.com/ig/modules/chart_content/da_ALL.xml" />
+    <Locale lang="de" messages="http://www.google.com/ig/modules/chart_content/de_ALL.xml" />
+    <Locale lang="el" messages="http://www.google.com/ig/modules/chart_content/el_ALL.xml" />
+    <Locale lang="en-GB" messages="http://www.google.com/ig/modules/chart_content/en_GB.xml" />
+    <Locale lang="es" messages="http://www.google.com/ig/modules/chart_content/es_ALL.xml" />
+    <Locale lang="et" messages="http://www.google.com/ig/modules/chart_content/et_ALL.xml" />
+    <Locale lang="fi" messages="http://www.google.com/ig/modules/chart_content/fi_ALL.xml" />
+    <Locale lang="fr" messages="http://www.google.com/ig/modules/chart_content/fr_ALL.xml" />
+    <Locale lang="hi" messages="http://www.google.com/ig/modules/chart_content/hi_ALL.xml" />
+    <Locale lang="hr" messages="http://www.google.com/ig/modules/chart_content/hr_ALL.xml" />
+    <Locale lang="hu" messages="http://www.google.com/ig/modules/chart_content/hu_ALL.xml" />
+    <Locale lang="hy" messages="http://www.google.com/ig/modules/chart_content/hy_ALL.xml" />
+    <Locale lang="id" messages="http://www.google.com/ig/modules/chart_content/id_ALL.xml" />
+    <Locale lang="is" messages="http://www.google.com/ig/modules/chart_content/is_ALL.xml" />
+    <Locale lang="it" messages="http://www.google.com/ig/modules/chart_content/it_ALL.xml" />
+    <Locale lang="iw" messages="http://www.google.com/ig/modules/chart_content/iw_ALL.xml" language_direction="rtl" />
+    <Locale lang="ja" messages="http://www.google.com/ig/modules/chart_content/ja_ALL.xml" />
+    <Locale lang="ko" messages="http://www.google.com/ig/modules/chart_content/ko_ALL.xml" />
+    <Locale lang="lt" messages="http://www.google.com/ig/modules/chart_content/lt_ALL.xml" />
+    <Locale lang="lv" messages="http://www.google.com/ig/modules/chart_content/lv_ALL.xml" />
+    <Locale lang="ms" messages="http://www.google.com/ig/modules/chart_content/ms_ALL.xml" />
+    <Locale lang="nl" messages="http://www.google.com/ig/modules/chart_content/nl_ALL.xml" />
+    <Locale lang="no" messages="http://www.google.com/ig/modules/chart_content/no_ALL.xml" />
+    <Locale lang="pl" messages="http://www.google.com/ig/modules/chart_content/pl_ALL.xml" />
+    <Locale lang="pt-BR" messages="http://www.google.com/ig/modules/chart_content/pt_BR.xml" />
+    <Locale lang="pt-PT" messages="http://www.google.com/ig/modules/chart_content/pt_PT.xml" />
+    <Locale lang="ro" messages="http://www.google.com/ig/modules/chart_content/ro_ALL.xml" />
+    <Locale lang="ru" messages="http://www.google.com/ig/modules/chart_content/ru_ALL.xml" />
+    <Locale lang="sl" messages="http://www.google.com/ig/modules/chart_content/sl_ALL.xml" />
+    <Locale lang="sk" messages="http://www.google.com/ig/modules/chart_content/sk_ALL.xml" />
+    <Locale lang="sr" messages="http://www.google.com/ig/modules/chart_content/sr_ALL.xml" />
+    <Locale lang="sv" messages="http://www.google.com/ig/modules/chart_content/sv_ALL.xml" />
+    <Locale lang="th" messages="http://www.google.com/ig/modules/chart_content/th_ALL.xml" />
+    <Locale lang="tl" messages="http://www.google.com/ig/modules/chart_content/tl_ALL.xml" />
+    <Locale lang="tr" messages="http://www.google.com/ig/modules/chart_content/tr_ALL.xml" />
+    <Locale lang="uk" messages="http://www.google.com/ig/modules/chart_content/uk_ALL.xml" />
+    <Locale lang="vi" messages="http://www.google.com/ig/modules/chart_content/vi_ALL.xml" />
+    <Locale lang="zh-CN" messages="http://www.google.com/ig/modules/chart_content/zh_CN.xml" />
+    <Locale lang="zh-TW" messages="http://www.google.com/ig/modules/chart_content/zh_TW.xml" />
+  </ModulePrefs>
+
+  <UserPref name="_table_query_url" display_name="__MSG_tablequeryurl__" required="true" />
+  <UserPref name="title" display_name="__MSG_title__" required="false" />
+  <UserPref name="chartTitle" display_name="__MSG_chartTitle__" required="false" />
+  <UserPref name="labelx" display_name="__MSG_labelx__" required="false" />
+  <UserPref name="labely" display_name="__MSG_labely__" required="false" />
+<!--
+  <UserPref name="legend" display_name="__MSG_legend__" default_value="__MSG_onRight__" datatype="enum" required="false">
+    <EnumValue value="0" display_value="__MSG_onRight__" />
+    <EnumValue value="1" display_value="__MSG_onLeft__" />
+    <EnumValue value="2" display_value="__MSG_onTop__" />
+    <EnumValue value="3" display_value="__MSG_onBottom__" />
+    <EnumValue value="4" display_value="__MSG_noLegend__" />
+  </UserPref>
+-->
+  <UserPref name="smoothline" display_name="__MSG_smoothline__" datatype="bool" />
+  <UserPref name="showpoints" display_name="__MSG_showpoints__" datatype="bool" default_value="true"/>
+  <UserPref name="miny" display_name="__MSG_miny__" />
+  <UserPref name="maxy" display_name="__MSG_maxy__" />
+  <UserPref name="minx" display_name="__MSG_minx__" />
+  <UserPref name="maxx" display_name="__MSG_maxx__" />
+  <UserPref name="raxis_series" display_name="__MSG_raxis_series__"/>
+  <UserPref name="raxis_title" display_name="__MSG_raxis_title__"/>
+  <UserPref name="_table_query_refresh_interval" display_name="__MSG_tablequeryrefreshinterval__" default_value="300" datatype="enum" required="false">
+    <EnumValue value="0" display_value="__MSG_never__" />
+    <EnumValue value="60" display_value="1" />
+    <EnumValue value="300" display_value="5" />
+    <EnumValue value="1800" display_value="30" />
+  </UserPref>
+
+  <UserPref name="vaxis_log_scale" display_name="__MSG_vaxis_log_scale__" datatype="bool" />
+  <UserPref name="haxis_time_format" display_name="__MSG_haxis_time_format__" datatype="bool" />
+  <UserPref name="pct_view" display_name="__MSG_pct_view__" datatype="bool" />
+
+  <Content type="html"><![CDATA[
+
+  <div id="loading"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+  <div id="dashboard">
+    <table>
+      <tr style='vertical-align: top'>
+        <td style='width: 20px; font-size: 0.9em;'>
+          <div id="control"></div>
+        </td>
+        <td style='width: 1200px'>
+          <div style="float: left;" id="chart"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+    var container;
+    var dataTable;
+
+    var options = {};
+
+    var vAxis = {};
+    options['vAxis'] = vAxis;
+
+    var hAxis = {};
+    options['hAxis'] = hAxis;
+
+    var series = {};
+    options['series'] = series;
+
+    var vAxes = {};
+    options['vAxes'] = vAxes;
+
+    var prefs = new _IG_Prefs();
+    var title = prefs.getString('title');
+    if (title) {
+      _IG_SetTitle(title);
+    }      
+
+    function loadVisualizationAPI() {
+      google.load('visualization', '1.1', {packages: ['corechart','controls']});
+      google.setOnLoadCallback(init);
+    };
+
+    var gadgetHelper;
+
+    function init() {
+      gadgetHelper = new google.visualization.GadgetHelper();
+      container = document.getElementById('dashboard');
+      container.style.width = document.body.clientWidth;
+      container.style.height = document.body.clientHeight;
+      options['title'] = prefs.getString('chartTitle');
+      options['isStacked'] = prefs.getBool('stacked');
+      //options['curveType'] = prefs.getBool('smoothline');
+      options['curveType'] = 'none';
+      options['pointSize'] = prefs.getBool('showpoints') ? 1 : 0;
+      options['width'] = container.style.width.replace('px','');
+      options['height'] = container.style.height.replace('px','');
+      //var legendOptions = ['right', 'left', 'top', 'bottom', 'none'];
+      //options['legend'] = legendOptions[prefs.getInt('legend')];
+      options['interpolateNulls'] = true;
+
+      vAxis['title'] = prefs.getString('labely');
+      vAxis['logScale'] = prefs.getBool('vaxis_log_scale');
+
+      hAxis['title'] = prefs.getString('labelx');
+
+      if (prefs.getString('miny') != '') {
+        vAxis['minValue'] = prefs.getInt('miny');
+      }
+      if (prefs.getString('maxy') != '') {
+        vAxis['maxValue'] = prefs.getInt('maxy');
+      }
+
+      if (prefs.getString('minx') != '') {
+        hAxis['minValue'] = prefs.getInt('minx');
+      }
+      if (prefs.getString('maxx') != '') {
+        hAxis['maxValue'] = prefs.getInt('maxx');
+      }
+
+      if ( prefs.getString('raxis_series') != 'null' && prefs.getString('raxis_series') != '') {
+        var series_elements = eval( prefs.getString('raxis_series') );
+        for ( var i=0;i<series_elements.length;i++ )
+          series[series_elements[i]] = { targetAxisIndex:1 };
+        if ( prefs.getString('raxis_title') != 'null' && prefs.getString('raxis_title') != '') {
+          var ra_title = prefs.getString('raxis_title');
+          vAxes[0] = {};
+          vAxes[1] = {};
+          vAxes[1]['title'] = ra_title;
+        } 
+      }
+
+      var pv = prefs.getBool('pct_view');
+
+      if ( pv ) {
+        vAxis[ 'format' ] = '###%';
+      }
+
+      var query = gadgetHelper.createQueryFromPrefs(prefs);
+      query.send(responseHandler);
+    };
+
+    function responseHandler(response) {
+      // Remove the loading message (if exists).
+      var loadingMsgContainer = document.getElementById('loading');
+      loadingMsgContainer.style.display = 'none';
+     
+      if (!gadgetHelper.validateResponse(response)) {
+        // Default error handling was done, just leave.
+        return;
+      }
+
+      dataTable = response.getDataTable();
+
+      var tx = prefs.getBool("haxis_time_format");
+
+      if ( tx )
+        formatTimeXAxis( dataTable );
+
+      var ref = getMaxColumn( dataTable );
+
+      // Define a slider control for the y-axis.
+      var slider = new google.visualization.ControlWrapper({
+        'controlType': 'NumberRangeFilter',
+        'containerId': 'control',
+        'options': {
+          'filterColumnIndex': ref, 'minValue': 0,
+          'ui': { 'labelStacking':'horizontal','orientation':'vertical','label':'' }
+        },
+        'dataTable' : dataTable
+      });
+
+      // Define a Line chart
+      var lineChart = new google.visualization.ChartWrapper({
+        'chartType': 'LineChart',
+        'containerId': 'chart',
+        'options': options,
+        'dataTable' : dataTable
+      });
+      
+      lineChart.draw();
+      slider.draw();
+
+      function onControlStateChange() {
+        var controlState = slider.getState();
+        //var filteredView = filterView( dataTable,controlState.lowValue,controlState.highValue );
+        //lineChart.setView( filteredView.toJSON() );
+        var filteredTable = filterTable( dataTable,controlState.lowValue,controlState.highValue );
+        lineChart.setDataTable( filteredTable.toJSON() );
+        lineChart.draw();
+      }
+
+      google.visualization.events.addListener( slider,'statechange',onControlStateChange );
+    };
+
+    function formatTimeXAxis( _table ) {
+      // format the x-axis in time-only format.
+      var v;
+      var sp;
+      for ( var i = 0;i<_table.getNumberOfRows();i++ ) {
+        v = _table.getValue( i,0 );
+        sp = v.indexOf( ' ' );
+        if ( sp > 0 ) {
+          ts = v.substring( sp+1,v.length );
+          _table.setValue( i,0,ts );
+        }
+      }
+    };
+
+    function getMaxColumn( _table ) {
+      var max = 0;
+      var ref = 0;
+      for ( var i = 0;i<_table.getNumberOfRows();i++ )
+        for ( var j = 1;j<_table.getNumberOfColumns();j++ ) {
+          v = _table.getValue( i,j );
+          if ( v>max ) {
+            max = v;
+            ref = j;
+          }
+      }
+
+      return ref;
+    };
+
+    function filterView( _table,_min,_max ) {
+      // filter a data table by min, max column values, producing a data view.
+      var validColumns = [ 0 ];
+      var cellValue;
+      var valid;
+      for ( var i = 1;i<_table.getNumberOfColumns();i++ ) {
+        valid = true;
+        for ( var j = 0;j<_table.getNumberOfRows() && valid;j++ ) {
+          cellValue = _table.getValue( j,i );
+          if ( (cellValue < _min || cellValue > _max) && cellValue != null )
+            valid = false;
+        }
+
+        if ( valid )
+          validColumns.push( i );
+      }
+
+      var filteredView = new google.visualization.DataView( _table );
+      filteredView.setColumns( validColumns );
+
+      return filteredView;
+    }
+
+    function filterTable( _table,_min,_max ) {
+      // filter a data table by a min, max value.
+      var cellValue;
+      var filteredTable = _table.clone();
+      for ( var i = 1;i<_table.getNumberOfColumns();i++ ) {
+        for ( var j = 0;j<_table.getNumberOfRows();j++ ) {
+          cellValue = _table.getValue( j,i );
+          if ( (cellValue < _min || cellValue > _max) && cellValue !== null )
+            filteredTable.setValue( j,i,null );
+        }
+      }
+
+      return filteredTable;
+    }
+
+  </script>
+
+  ]]>
+  </Content>
+</Module>
