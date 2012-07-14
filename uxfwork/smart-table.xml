@@ -154,13 +154,11 @@
 
 	              p = data.getProperties( i,j );
                 c = (j-2)%5+2;
-                /*
                 if (!isNaN(parseFloat(v)) && isFinite(v)) {
                   var myn = new Number(v);
                   if (String(myn).indexOf(".") < String(myn).length - 3)
-                    v = new String(myn.toFixed(2));
+                    v = String(myn).substring(0,indexOf(".")+2);
                 }
-                */
                 table.setCell( r,c,v,null,p );
              }
 
