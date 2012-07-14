@@ -133,9 +133,9 @@
        table.addColumn( 'string','End Time' );
        table.addColumn( 'string','User' );
        table.addColumn( 'string','Prod' );
-       table.addColumn( 'string','Max Alert Value (%)' );
-       table.addColumn( 'string','Max Alert Volume' );
        table.addColumn( 'string','Reason Code Alert' );
+       table.addColumn( 'string','Peak Value (%)' );
+       table.addColumn( 'string','Peak Volume' );
 
        var v, r, c;
        // pretty format rows/columns in a new table
