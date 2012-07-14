@@ -143,7 +143,6 @@
           for ( var j=0;j<data.getNumberOfColumns();j++ )
              if ((v = data.getValue( i,j ))) {
                 if ( j==0 || (j-2)%5==0 && Math.floor((j-2)/5)>0 ) {
-                //if ( j==0 || (j-2)%3==0 && Math.floor((j-2)/3)>0 ) {
                    if ( j== 0 ) 
                       table.addRows( 2 );
                    else
@@ -153,7 +152,6 @@
 
 	        p = data.getProperties( i,j );
                 c = (j-2)%5+2;
-                //c = (j-2)%3+2;
                 table.setCell( r,c,v,null,p );
              }
 
