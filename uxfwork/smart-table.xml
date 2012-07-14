@@ -118,7 +118,6 @@
        }
 
        colorformatter.format( data,cid );
-       numberformatter.format( data,5 );
 
        var p;
        // colorize rows/columns
@@ -153,10 +152,12 @@
                    r = table.getNumberOfRows()-1;
                 }
 
-	        p = data.getProperties( i,j );
+	              p = data.getProperties( i,j );
                 c = (j-2)%5+2;
                 table.setCell( r,c,v,null,p );
              }
+
+       numberformatter.format( data,5 );
 
        return table;
     };
