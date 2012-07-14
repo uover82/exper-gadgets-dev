@@ -155,7 +155,7 @@
 	              p = data.getProperties( i,j );
                 c = (j-2)%5+2;
                 if (!isNaN(parseFloat(v)) && isFinite(v))
-                  if (String(v).indexOf(".") < String(v).length - 3) v.toFixed(2);
+                  if (String(v).indexOf(".") < String(v).length - 3) v.toPrecision(2);
                 table.setCell( r,c,v,null,p );
              }
 
