@@ -134,7 +134,7 @@
        table.addColumn( 'string','User' );
        table.addColumn( 'string','Prod' );
        table.addColumn( 'string','Reason Code Alert' );
-       table.addColumn( 'string','Peak Value' );
+       table.addColumn( 'string','Peak Value (%)' );
        table.addColumn( 'string','Peak Volume' );
 
        var v, r, c;
@@ -154,7 +154,7 @@
                 c = (j-2)%5+2;
                 if (!isNaN(parseFloat(v)) && isFinite(v)) {
                   if (v.indexOf(".") < v.length - 3)
-                    v = v.substring(0,v.indexOf(".")+3)+'%';
+                    v = v.substring(0,v.indexOf(".")+2);
                 }
                 table.setCell( r,c,v,null,p );
              }
