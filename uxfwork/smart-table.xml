@@ -157,7 +157,7 @@
                 if (!isNaN(parseFloat(v)) && isFinite(v)) {
                   var n = new Number(v);
                   if (String(n).indexOf(".") < String(n).length - 3) n.toFixed(2);
-                  v = n;
+                  v = new String(n);
                 }
                 table.setCell( r,c,v,null,p );
              }
