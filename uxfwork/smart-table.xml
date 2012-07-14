@@ -155,10 +155,8 @@
 	              p = data.getProperties( i,j );
                 c = (j-2)%5+2;
                 if (!isNaN(parseFloat(v)) && isFinite(v)) {
-                  var myn = new Number(v);
-                  var mys = new String(myn);
-                  if (mys.indexOf(".") < mys.length - 3)
-                    v = mys.substring(0,mys.indexOf(".")+2);
+                  if (v.indexOf(".") < v.length - 3)
+                    v = v.substring(0,v.indexOf(".")+2);
                 }
                 table.setCell( r,c,v,null,p );
              }
