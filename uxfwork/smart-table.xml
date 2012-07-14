@@ -157,7 +157,7 @@
                 table.setCell( r,c,v,null,p );
              }
 
-       numberformatter.format( data,5 );
+       numberformatter.format( table,5 );
 
        return table;
     };
