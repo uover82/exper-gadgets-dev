@@ -84,23 +84,25 @@
       var prefs = new _IG_Prefs(); // User preferences
       options['allowHtml'] = !prefs.getBool("disableHtml");
 
-      data = colorFormatRows( data );
+      data = formatTable( data );
 
       table.draw( data,options );
     };
 
     /**
-     * Color format each table row using the number of columns.
+     * Format the data tavke - Color format each table row using the number of columns and set peak value precision/add % suffix.
      */
-    function colorFormatRows( data ) {
+    function formatTable( data ) {
 
-       var formatter = new google.visualization.ColorFormat();
+       var colorformatter = new google.visualization.ColorFormat();
+       var numberformatter = new google.visualization.NumberFormat(
+                                 {fractionDigits: 2, suffix: '%'});
 
-       formatter.addRange( 0,2,'black','white' );
-       formatter.addRange( 2,3,'blue','white' );
-       formatter.addRange( 3,5,'green','white' );
-       formatter.addRange( 4,5,'orange','white' );
-       formatter.addRange( 5,1000,'red','white' );
+       colorformatter.addRange( 0,2,'black','white' );
+       colorformatter.addRange( 2,3,'blue','white' );
+       colorformatter.addRange( 3,5,'green','white' );
+       colorformatter.addRange( 4,5,'orange','white' );
+       colorformatter.addRange( 5,1000,'red','white' );
 
        var cid = data.addColumn( 'number','hl' );
 
@@ -115,7 +117,8 @@
              valid = 0;
        }
 
-       formatter.format( data,cid );
+       colorformatter.format( data,cid );
+       numberformatter.format( data,5 );
 
        var p;
        // colorize rows/columns
@@ -134,7 +137,7 @@
        table.addColumn( 'string','User' );
        table.addColumn( 'string','Prod' );
        table.addColumn( 'string','Reason Code Alert' );
-       table.addColumn( 'string','Peak Value (%)' );
+       table.addColumn( 'string','Peak Value' );
        table.addColumn( 'string','Peak Volume' );
 
        var v, r, c;
