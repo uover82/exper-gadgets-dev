@@ -163,7 +163,9 @@
       var loadingMsgContainer = document.getElementById('loading');
       loadingMsgContainer.style.display = 'none';
      
-      if (!gadgetHelper.validateResponse(response)) {
+      alert( _table_query_url );
+
+if (!gadgetHelper.validateResponse(response)) {
         // Default error handling was done, just leave.
         return;
       }
