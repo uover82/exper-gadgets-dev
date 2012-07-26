@@ -163,7 +163,7 @@
       var loadingMsgContainer = document.getElementById('loading');
       loadingMsgContainer.style.display = 'none';
      
-      alert( _table_query_url );
+      alert( prefs.getString('_table_query_url') );
 
 if (!gadgetHelper.validateResponse(response)) {
         // Default error handling was done, just leave.
