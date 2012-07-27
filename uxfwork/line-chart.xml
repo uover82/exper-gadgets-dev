@@ -154,24 +154,54 @@
         } 
       }
 
-      var query = gadgetHelper.createQueryFromPrefs(prefs);
-      query.send(responseHandler);
+      queryData( prefs );
+
+      //var query = gadgetHelper.createQueryFromPrefs(prefs);
+      //query.send(responseHandler);
+
     };
 
-    function responseHandler(response) {
+    function queryData( prefs ) {
       // Remove the loading message (if exists).
       var loadingMsgContainer = document.getElementById('loading');
       loadingMsgContainer.style.display = 'none';
-     
+
       alert( prefs.getString('_table_query_url') );
 
-if (!gadgetHelper.validateResponse(response)) {
-        // Default error handling was done, just leave.
-        return;
+      var query = gadgetHelper.createQueryFromPrefs(prefs);
+      query.send(responseHandler);
+
+      if ( !gadgetHelper.validateResponse(response) ) {
+
+        var wqu = prefs.getString('_table_query_url');
+        var up = substring( 0,wqu.indexOf('select') );
+        var ucs = substring( wqu.indexOf('select'),wqu.indexOf('&dtx') );
+        var us = substring( wqu.indexOf('&dtx'),wqu.length()-1 );
+        var cna = ucs.replace( ' Col,'' ).split( ',' );
+        var cnamx = Math.max.apply( Math,cna );
+
+        var query, nqu, nucs;
+        do {
+          for ( i=cnamx;i>0;i-- ) {
+            nucs = ucs.replace("', Col'+i","");
+            if ( nucs.length()<ucs.length() ) {
+              ucs = nucs;
+              cnamx = i;
+              break;
+            }
+          }
+
+          nqu = up+ucs+us;
+          prefs.setString( '_table_query_url',nqu );
+          query = gadgetHelper.createQueryFromPrefs( prefs );
+          query.send( responseHandler(response) );
+          //sleep 1
+          if ( gadgetHelper.validateResponse( response ))
+          break;
+        } while ( true );
       }
-
+ 
       var dataTable = response.getDataTable();
-
       var tx = prefs.getBool('haxis_time_format');
 
       if ( tx )
@@ -190,6 +220,10 @@ if (!gadgetHelper.validateResponse(response)) {
       //google.visualization.events.addListener(lineChart, 'onmouseover', mouseOver);
       //google.visualization.events.addListener(lineChart, 'onmouseout', mouseOut);
     };
+
+    function responseHandler(response) {
+      return gadgetHelper.validateResponse( response );
+    }
 
     function mouseOver(e) {
       lineChart.setSelection([e]);
