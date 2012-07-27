@@ -177,7 +177,7 @@
         var up = substring( 0,wqu.indexOf('select') );
         var ucs = substring( wqu.indexOf('select'),wqu.indexOf('&dtx') );
         var us = substring( wqu.indexOf('&dtx'),wqu.length()-1 );
-        var cna = ucs.replace( ' Col,'' ).split( ',' );
+        var cna = ucs.replace( ' Col','' ).split( ',' );
         var cnamx = Math.max.apply( Math,cna );
 
         var query, nqu, nucs;
