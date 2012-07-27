@@ -167,12 +167,12 @@
       var loadingMsgContainer = document.getElementById('loading');
       loadingMsgContainer.style.display = 'none';
 
-      alert( prefs.getString('_table_query_url') );
-
       var query = gadgetHelper.createQueryFromPrefs(prefs);
       query.send(responseHandler);
 
       if ( !gadgetHelper.validateResponse(response) ) {
+
+        alert( prefs.getString('_table_query_url') );
 
         var wqu = prefs.getString('_table_query_url');
         var up = substring( 0,wqu.indexOf('select') );
