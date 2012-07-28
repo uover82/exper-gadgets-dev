@@ -182,7 +182,7 @@
         //google.visualization.events.addListener(lineChart, 'onmouseout', mouseOut);
       }
       else {
-        alert( prefs.getString('_table_query_url'));
+        alert( prefs.getString('_table_query_url')+' : '+response.getDetailedMessage() );
         var wqu = prefs.getString('_table_query_url');
         var up = wqu.substring( 0,wqu.indexOf('select') );
         var ucs = wqu.substring( wqu.indexOf('select')+6,wqu.indexOf('&dtx') );
