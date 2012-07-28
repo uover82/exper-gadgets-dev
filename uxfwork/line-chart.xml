@@ -171,6 +171,8 @@
       var query = gadgetHelper.createQueryFromPrefs(prefs);
       query.send(responseHandler);
 
+      alert( qr );
+  
       if ( !qr ) {
         var wqu = prefs.getString('_table_query_url');
         var up = wqu.substring( 0,wqu.indexOf('select') );
@@ -192,7 +194,7 @@
 
           nqu = up+ucs+us;
 
-          alert( nqu );
+          //alert( nqu );
 
           prefs.set( '_table_query_url',nqu );
           query = gadgetHelper.createQueryFromPrefs( prefs );
