@@ -199,8 +199,8 @@
         }
 
         nqu = up+'select'+ucs+us;
-        alert( 'nqu:'+nqu );
         prefs.set( '_table_query_url',nqu );
+        alert( prefs.getString('_table_query_url'));
         query = gadgetHelper.createQueryFromPrefs( prefs );
         query.send( responseHandler );
       }
