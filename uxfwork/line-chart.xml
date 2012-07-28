@@ -228,7 +228,6 @@
         qr = 1;
       else
         qr = 0;
-      fi
     }
 
     function mouseOver(e) {
