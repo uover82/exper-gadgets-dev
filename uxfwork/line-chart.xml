@@ -123,7 +123,7 @@
     };
 
     var gadgetHelper;
-    var response;
+    var qr;
 
     function init() {
       gadgetHelper = new google.visualization.GadgetHelper();
@@ -172,7 +172,7 @@
 
       alert( prefs.getString('_table_query_url') );
 
-      if ( !gadgetHelper.validateResponse(response) ) {
+      if ( !qr ) {
 
         alert( prefs.getString('_table_query_url') );
 
@@ -199,7 +199,7 @@
           query = gadgetHelper.createQueryFromPrefs( prefs );
           query.send( responseHandler(response) );
           //sleep 1
-          if ( gadgetHelper.validateResponse( response ))
+          if ( qr ))
           break;
         } while ( true );
       }
@@ -225,7 +225,11 @@
     };
 
     function responseHandler(response) {
-      return gadgetHelper.validateResponse( response );
+      if ( gadgetHelper.validateResponse( response ) )
+        return 1;
+      else
+        return 0;
+      fi
     }
 
     function mouseOver(e) {
