@@ -190,7 +190,7 @@
         var cnamx = Math.max.apply( Math,cna );
         var query, nqu, nucs;
         for ( i=cnamx;i>0;i-- ) {
-          nucs = ucs.replace(", Col'+i","");
+          nucs = ucs.replace("', Col'+i","");
           alert( 'cnamx:'+cnamx+' ucs:'+ucs+' nucs:'+nucs);
           if ( nucs.length<ucs.length ) {
             ucs = nucs;
