@@ -191,6 +191,9 @@
           }
 
           nqu = up+ucs+us;
+
+          alert( nqu );
+
           prefs.set( '_table_query_url',nqu );
           query = gadgetHelper.createQueryFromPrefs( prefs );
           query.send( responseHandler );
