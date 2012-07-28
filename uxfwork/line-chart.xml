@@ -174,7 +174,7 @@
         var wqu = prefs.getString('_table_query_url');
         var up = wqu.substring( 0,wqu.indexOf('select') );
         var ucs = wqu.substring( wqu.indexOf('select'),wqu.indexOf('&dtx') );
-        var us = wqu.substring( wqu.indexOf('&dtx'),wqu.length()-1 );
+        var us = wqu.substring( wqu.indexOf('&dtx'),wqu.length-1 );
         var cna = ucs.replace( ' Col','' ).split( ',' );
         var cnamx = Math.max.apply( Math,cna );
 
@@ -182,7 +182,7 @@
         do {
           for ( i=cnamx;i>0;i-- ) {
             nucs = ucs.replace("', Col'+i","");
-            if ( nucs.length()<ucs.length() ) {
+            if ( nucs.length<ucs.length ) {
               ucs = nucs;
               cnamx = i;
               break;
