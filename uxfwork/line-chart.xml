@@ -190,7 +190,7 @@
           }
 
           nqu = up+ucs+us;
-          prefs.setString( '_table_query_url',nqu );
+          prefs.set( '_table_query_url',nqu );
           query = gadgetHelper.createQueryFromPrefs( prefs );
           query.send( responseHandler(response) );
           //sleep 1
