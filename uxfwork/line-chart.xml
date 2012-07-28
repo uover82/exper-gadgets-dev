@@ -165,7 +165,6 @@
       loadingMsgContainer.style.display = 'none';
 
       if ( gadgetHelper.validateResponse(response) ) {
-        alert( prefs.getString('_table_query_url'));
         var dataTable = response.getDataTable();
         var tx = prefs.getBool('haxis_time_format');
         if ( tx )
