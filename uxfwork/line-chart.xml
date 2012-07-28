@@ -170,6 +170,8 @@
       var query = gadgetHelper.createQueryFromPrefs(prefs);
       query.send(responseHandler);
 
+      alert( prefs.getString('_table_query_url') );
+
       if ( !gadgetHelper.validateResponse(response) ) {
 
         alert( prefs.getString('_table_query_url') );
@@ -223,7 +225,6 @@
     };
 
     function responseHandler(response) {
-      alert( prefs.getString('_table_query_url') );
       return gadgetHelper.validateResponse( response );
     }
 
