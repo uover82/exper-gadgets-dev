@@ -161,8 +161,8 @@
 
     function responseHandler(response) {
       // Remove the loading message (if exists).
-      //var loadingMsgContainer = document.getElementById('loading');
-      //loadingMsgContainer.style.display = 'none';
+      var loadingMsgContainer = document.getElementById('loading');
+      loadingMsgContainer.style.display = 'none';
 
       if ( gadgetHelper.validateResponse(response) ) {
         var dataTable = response.getDataTable();
