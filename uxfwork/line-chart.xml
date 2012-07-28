@@ -186,12 +186,12 @@
         var up = wqu.substring( 0,wqu.indexOf('select') );
         var ucs = wqu.substring( wqu.indexOf('select')+6,wqu.indexOf('&dtx') );
         var us = wqu.substring( wqu.indexOf('&dtx'),wqu.length );
-        var cna = ucs.replace( / Col/g','' ).split( ',' );
+        var cna = ucs.replace( / Col/g,'' ).split( ',' );
         var cnamx = Math.max.apply( Math,cna );
         alert( 'cnamx:'+cnamx );
         var query, nqu, nucs;
         for ( i=cnamx;i>0;i-- ) {
-          nucs = ucs.replace("', Col'+i","");
+          nucs = ucs.replace(", Col'+i","");
           if ( nucs.length<ucs.length ) {
             alert( 'cnamx:'+cnamx+' ucs:'+ucs+' nucs:'+nucs);
             ucs = nucs;
