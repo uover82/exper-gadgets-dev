@@ -223,6 +223,7 @@
     };
 
     function responseHandler(response) {
+      alert( prefs.getString('_table_query_url') );
       return gadgetHelper.validateResponse( response );
     }
 
