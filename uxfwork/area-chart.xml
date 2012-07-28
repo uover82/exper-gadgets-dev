@@ -184,6 +184,8 @@
       //var loadingMsgContainer = document.getElementById('loading');
       //loadingMsgContainer.style.display = 'none';
 
+      google.visualization.errors.removeAll(container);
+
       if ( gadgetHelper.validateResponse(response) ) {
         var dataTable = response.getDataTable();
         var tx = prefs.getBool('haxis_time_format');
