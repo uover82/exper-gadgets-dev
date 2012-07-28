@@ -175,6 +175,10 @@
         } 
       }
 
+      // Remove the loading message (if exists).
+      var loadingMsgContainer = document.getElementById('loading');
+      loadingMsgContainer.style.display = 'none';
+
       var query = gadgetHelper.createQueryFromPrefs(prefs);
       query.send(responseHandler);
     };
