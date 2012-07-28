@@ -165,6 +165,7 @@
       loadingMsgContainer.style.display = 'none';
 
       if ( gadgetHelper.validateResponse(response) ) {
+        alert( prefs.getString('_table_query_url'));
         var dataTable = response.getDataTable();
         var tx = prefs.getBool('haxis_time_format');
         if ( tx )
@@ -182,6 +183,7 @@
         //google.visualization.events.addListener(lineChart, 'onmouseout', mouseOut);
       }
       else {
+        alert( prefs.getString('_table_query_url'));
         var wqu = prefs.getString('_table_query_url');
         var up = wqu.substring( 0,wqu.indexOf('select') );
         var ucs = wqu.substring( wqu.indexOf('select')+6,wqu.indexOf('&dtx') );
@@ -200,7 +202,6 @@
 
         nqu = up+'select'+ucs+us;
         prefs.set( '_table_query_url',nqu );
-        alert( prefs.getString('_table_query_url'));
         query = gadgetHelper.createQueryFromPrefs( prefs );
         query.send( responseHandler );
       }
