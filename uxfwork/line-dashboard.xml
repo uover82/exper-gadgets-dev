@@ -203,54 +203,70 @@
       // Remove the loading message (if exists).
       var loadingMsgContainer = document.getElementById('loading');
       loadingMsgContainer.style.display = 'none';
-     
-      if (!gadgetHelper.validateResponse(response)) {
-        // Default error handling was done, just leave.
-        return;
-      }
 
-      dataTable = response.getDataTable();
+      if ( gadgetHelper.validateResponse(response) ) {
+        var dataTable = response.getDataTable();
+        var tx = prefs.getBool('haxis_time_format');
+        if ( tx )
+          formatTimeXAxis( dataTable );
+        var ref = getMaxColumn( dataTable );
 
-      var tx = prefs.getBool("haxis_time_format");
+        // Define a slider control for the y-axis.
+        var slider = new google.visualization.ControlWrapper({
+          'controlType': 'NumberRangeFilter',
+          'containerId': 'control',
+          'options': {
+            'filterColumnIndex': ref, 'minValue': 0,
+            'ui': { 'labelStacking':'horizontal','orientation':'vertical','label':'' }
+          },
+          'dataTable' : dataTable
+        });
 
-      if ( tx )
-        formatTimeXAxis( dataTable );
-
-      var ref = getMaxColumn( dataTable );
-
-      // Define a slider control for the y-axis.
-      var slider = new google.visualization.ControlWrapper({
-        'controlType': 'NumberRangeFilter',
-        'containerId': 'control',
-        'options': {
-          'filterColumnIndex': ref, 'minValue': 0,
-          'ui': { 'labelStacking':'horizontal','orientation':'vertical','label':'' }
-        },
-        'dataTable' : dataTable
-      });
-
-      // Define a Line chart
-      var lineChart = new google.visualization.ChartWrapper({
-        'chartType': 'LineChart',
-        'containerId': 'chart',
-        'options': options,
-        'dataTable' : dataTable
-      });
+        // Define a Line chart
+        var lineChart = new google.visualization.ChartWrapper({
+          'chartType': 'LineChart',
+          'containerId': 'chart',
+          'options': options,
+          'dataTable' : dataTable
+        });
       
-      lineChart.draw();
-      slider.draw();
-
-      function onControlStateChange() {
-        var controlState = slider.getState();
-        //var filteredView = filterView( dataTable,controlState.lowValue,controlState.highValue );
-        //lineChart.setView( filteredView.toJSON() );
-        var filteredTable = filterTable( dataTable,controlState.lowValue,controlState.highValue );
-        lineChart.setDataTable( filteredTable.toJSON() );
         lineChart.draw();
-      }
+        slider.draw();
 
-      google.visualization.events.addListener( slider,'statechange',onControlStateChange );
-    };
+        function onControlStateChange() {
+          var controlState = slider.getState();
+          //var filteredView = filterView( dataTable,controlState.lowValue,controlState.highValue );
+          //lineChart.setView( filteredView.toJSON() );
+          var filteredTable = filterTable( dataTable,controlState.lowValue,controlState.highValue );
+          lineChart.setDataTable( filteredTable.toJSON() );
+          lineChart.draw();
+        }
+
+        google.visualization.events.addListener( slider,'statechange',onControlStateChange );
+      }
+      else {
+        var wqu = prefs.getString('_table_query_url');
+        var up = wqu.substring( 0,wqu.indexOf('select') );
+        var ucs = wqu.substring( wqu.indexOf('select')+6,wqu.indexOf('&dtx') );
+        var us = wqu.substring( wqu.indexOf('&dtx'),wqu.length );
+        var cna = ucs.replace( / Col/g,'' ).split( ',' );
+        var cnamx = Math.max.apply( Math,cna );
+        var query, nqu, nucs;
+        for ( i=cnamx;i>0;i-- ) {
+          nucs = ucs.replace(', Col'+i,'');
+          if ( nucs.length<ucs.length ) {
+            ucs = nucs;
+            cnamx = i;
+            break;
+          }
+        }
+
+        nqu = up+'select'+ucs+us;
+        prefs.set( '_table_query_url',nqu );
+        query = gadgetHelper.createQueryFromPrefs( prefs );
+        query.send( responseHandler );
+      }
+    }
 
     function formatTimeXAxis( _table ) {
       // format the x-axis in time-only format.
