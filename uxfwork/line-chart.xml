@@ -192,7 +192,6 @@
         for ( i=cnamx;i>0;i-- ) {
           nucs = ucs.replace(', Col'+i,'');
           if ( nucs.length<ucs.length ) {
-            alert( 'cnamx:'+cnamx+' ucs:'+ucs+' nucs:'+nucs);
             ucs = nucs;
             cnamx = i;
             break;
@@ -200,7 +199,7 @@
         }
 
         nqu = up+'select '+ucs+us;
-        //alert( ':'+nqu );
+        alert( ':'+nqu );
         prefs.set( '_table_query_url',nqu );
         query = gadgetHelper.createQueryFromPrefs( prefs );
         query.send( responseHandler );
