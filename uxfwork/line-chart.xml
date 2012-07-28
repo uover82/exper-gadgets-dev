@@ -124,7 +124,6 @@
     };
 
     var gadgetHelper;
-    var qr;
 
     function init() {
       gadgetHelper = new google.visualization.GadgetHelper();
@@ -156,24 +155,33 @@
         } 
       }
 
-      queryData();
-
-      //var query = gadgetHelper.createQueryFromPrefs(prefs);
-      //query.send(responseHandler);
-
+      var query = gadgetHelper.createQueryFromPrefs(prefs);
+      query.send(responseHandler);
     };
 
-    function queryData() {
+    function responseHandler(response) {
       // Remove the loading message (if exists).
       var loadingMsgContainer = document.getElementById('loading');
       loadingMsgContainer.style.display = 'none';
 
-      var query = gadgetHelper.createQueryFromPrefs(prefs);
-      query.send(responseHandler);
+      if ( gadgetHelper.validateResponse(response) ) {
+        var dataTable = response.getDataTable();
+        var tx = prefs.getBool('haxis_time_format');
+        if ( tx )
+          formatTimeXAxis( dataTable );
+        var pv = prefs.getBool('pct_view');
+        if ( pv ) {
+          //vAxis[ 'format' ] = '###%';
+          dataTable = filterTable( dataTable,0,100 );
+        }
 
-      alert( qr );
-  
-      if ( !qr ) {
+        lineChart.draw(dataTable, options);
+
+        // Add our over/out handlers.
+        //google.visualization.events.addListener(lineChart, 'onmouseover', mouseOver);
+        //google.visualization.events.addListener(lineChart, 'onmouseout', mouseOut);
+      }
+      else {
         var wqu = prefs.getString('_table_query_url');
         var up = wqu.substring( 0,wqu.indexOf('select') );
         var ucs = wqu.substring( wqu.indexOf('select'),wqu.indexOf('&dtx') );
@@ -182,56 +190,20 @@
         var cnamx = Math.max.apply( Math,cna );
 
         var query, nqu, nucs;
-        do {
-          for ( i=cnamx;i>0;i-- ) {
-            nucs = ucs.replace("', Col'+i","");
-            if ( nucs.length<ucs.length ) {
-              ucs = nucs;
-              cnamx = i;
-              break;
-            }
+        for ( i=cnamx;i>0;i-- ) {
+          nucs = ucs.replace("', Col'+i","");
+          if ( nucs.length<ucs.length ) {
+            ucs = nucs;
+            cnamx = i;
+            break;
           }
+        }
 
-          nqu = up+ucs+us;
-
-          //alert( nqu );
-
-          prefs.set( '_table_query_url',nqu );
-          query = gadgetHelper.createQueryFromPrefs( prefs );
-          query.send( responseHandler );
-          //sleep 1
-          if ( qr )
-          break;
-        } while ( true );
+        nqu = up+ucs+us;
+        prefs.set( '_table_query_url',nqu );
+        query = gadgetHelper.createQueryFromPrefs( prefs );
+        query.send( responseHandler );
       }
-    };
-
-    function responseHandler(response) {
-      if ( !gadgetHelper.validateResponse(response) ) {
-        qr = 0;
-        return;
-      }
-
-      qr = 1;
-
-      var dataTable = response.getDataTable();
-      var tx = prefs.getBool('haxis_time_format');
-
-      if ( tx )
-        formatTimeXAxis( dataTable );
-
-      var pv = prefs.getBool('pct_view');
-
-      if ( pv ) {
-        //vAxis[ 'format' ] = '###%';
-        dataTable = filterTable( dataTable,0,100 );
-      }
-
-      lineChart.draw(dataTable, options);
-
-      // Add our over/out handlers.
-      //google.visualization.events.addListener(lineChart, 'onmouseover', mouseOver);
-      //google.visualization.events.addListener(lineChart, 'onmouseout', mouseOut);
     }
 
     function mouseOver(e) {
