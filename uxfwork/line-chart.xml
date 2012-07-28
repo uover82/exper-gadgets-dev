@@ -225,9 +225,9 @@
 
     function responseHandler(response) {
       if ( gadgetHelper.validateResponse( response ) )
-        return 1;
+        qr = 1;
       else
-        return 0;
+        qr = 0;
       fi
     }
 
