@@ -146,7 +146,7 @@
       if ( prefs.getString('raxis_series') != 'null' && prefs.getString('raxis_series') != '') {
         var series_elements = eval( prefs.getString('raxis_series') );
         for ( var i=0;i<series_elements.length;i++ )
-          series[ser ies_elements[i]] = { targetAxisIndex:1 };
+          series[series_elements[i]] = { targetAxisIndex:1 };
         if ( prefs.getString('raxis_title') != 'null' && prefs.getString('raxis_title') != '') {
           var ra_title = prefs.getString('raxis_title');
           vAxes[0] = {};
