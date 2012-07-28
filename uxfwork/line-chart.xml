@@ -202,7 +202,16 @@
           break;
         } while ( true );
       }
- 
+    };
+
+    function responseHandler(response) {
+      if ( !gadgetHelper.validateResponse(response) ) {
+        qr = 0;
+        return;
+      }
+
+      qr = 1;
+
       var dataTable = response.getDataTable();
       var tx = prefs.getBool('haxis_time_format');
 
@@ -221,14 +230,6 @@
       // Add our over/out handlers.
       //google.visualization.events.addListener(lineChart, 'onmouseover', mouseOver);
       //google.visualization.events.addListener(lineChart, 'onmouseout', mouseOut);
-    };
-
-    function responseHandler(response) {
-      if ( gadgetHelper.validateResponse( response ) )
-        qr = 1;
-      else
-        qr = 0;
-      return;
     }
 
     function mouseOver(e) {
