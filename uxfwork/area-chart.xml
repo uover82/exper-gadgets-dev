@@ -181,10 +181,8 @@
 
     function responseHandler(response) {
       // Remove the loading message (if exists).
-      //var loadingMsgContainer = document.getElementById('loading');
-      //loadingMsgContainer.style.display = 'none';
-
-      google.visualization.errors.removeAll(document.getElementById('chart'));
+      var loadingMsgContainer = document.getElementById('loading');
+      loadingMsgContainer.style.display = 'none';
 
       if ( gadgetHelper.validateResponse(response) ) {
         var dataTable = response.getDataTable();
