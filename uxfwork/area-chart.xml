@@ -184,7 +184,7 @@
       //var loadingMsgContainer = document.getElementById('loading');
       //loadingMsgContainer.style.display = 'none';
 
-      google.visualization.errors.removeAll(container);
+      google.visualization.errors.removeAll(document.getElementById('chart'));
 
       if ( gadgetHelper.validateResponse(response) ) {
         var dataTable = response.getDataTable();
