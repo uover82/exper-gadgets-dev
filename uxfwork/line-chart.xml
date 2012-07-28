@@ -188,12 +188,11 @@
         var us = wqu.substring( wqu.indexOf('&dtx'),wqu.length );
         var cna = ucs.replace( / Col/g,'' ).split( ',' );
         var cnamx = Math.max.apply( Math,cna );
-        alert( 'cnamx:'+cnamx );
         var query, nqu, nucs;
         for ( i=cnamx;i>0;i-- ) {
           nucs = ucs.replace(", Col'+i","");
+          alert( 'cnamx:'+cnamx+' ucs:'+ucs+' nucs:'+nucs);
           if ( nucs.length<ucs.length ) {
-            alert( 'cnamx:'+cnamx+' ucs:'+ucs+' nucs:'+nucs);
             ucs = nucs;
             cnamx = i;
             break;
