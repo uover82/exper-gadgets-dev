@@ -186,10 +186,10 @@
         var up = wqu.substring( 0,wqu.indexOf('select') );
         var ucs = wqu.substring( wqu.indexOf('select')+6,wqu.indexOf('&dtx') );
         var us = wqu.substring( wqu.indexOf('&dtx'),wqu.length );
-        alert( 'up:'+up+' ucs:'+ucs+' us:'+us);
+        //alert( 'up:'+up+' ucs:'+ucs+' us:'+us);
         var cna = ucs.replace( ' Col','' ).split( ',' );
         var cnamx = Math.max.apply( Math,cna );
-
+        alert( 'cnamx:'+cnamx );
         var query, nqu, nucs;
         for ( i=cnamx;i>0;i-- ) {
           nucs = ucs.replace("', Col'+i","");
