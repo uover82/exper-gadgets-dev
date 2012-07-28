@@ -199,7 +199,7 @@
           query = gadgetHelper.createQueryFromPrefs( prefs );
           query.send( responseHandler(response) );
           //sleep 1
-          if ( qr ))
+          if ( qr )
           break;
         } while ( true );
       }
