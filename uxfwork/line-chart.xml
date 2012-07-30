@@ -188,7 +188,7 @@
         var us = wqu.substring( wqu.indexOf('&dtx'),wqu.length );
         var cna = ucs.replace( / Col/g,'' ).split( ',' );
         var cnamx = Math.max.apply( Math,cna );
-        var ec = number.max_value;
+        var ec = Number.max_value;
 
         var em = response.getDetailedMessage();
         if ( em.indexOf('does not exist') ) {
