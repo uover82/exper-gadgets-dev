@@ -216,7 +216,7 @@
           if ( ii>=4 ) {
             var ss = em.substring( ii );
             alert( ss );
-            var ei = ss.indexOf( ']' )-1;
+            var ei = ss.indexOf( ']' );
             if ( ei>=0 )
               ec = ss.substring( 0,ei );
           }
