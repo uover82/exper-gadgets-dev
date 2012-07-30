@@ -219,7 +219,7 @@
             var ei = ss.indexOf( ']' )-1;
             if ( ei>=0 )
               ec = ss.substring( 0,ei );
-            alert( ei );
+            alert( ec );
           }
         }
 
