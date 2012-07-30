@@ -212,8 +212,8 @@
 
         var em = response.getDetailedMessage();
         if ( em.indexOf('does not exist')>=0 ) {
-          var ii=em.indexOf('[Col')+5;
-          if ( ii>=5 ) {
+          var ii=em.indexOf('[Col')+4;
+          if ( ii>=4 ) {
             var ss = em.substring( ii );
             var ei = ss.indexOf( ']' )-1;
             if ( ei>=0 )
