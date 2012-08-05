@@ -166,7 +166,6 @@
 
       if ( gadgetHelper.validateResponse(response) ) {
         var dataTable = response.getDataTable();
-        alert( dataTable.toSource() );
         var tx = prefs.getBool('haxis_time_format');
         if ( tx )
           formatTimeXAxis( dataTable );
