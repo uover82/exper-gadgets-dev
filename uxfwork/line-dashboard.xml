@@ -80,6 +80,7 @@
   <UserPref name="maxx" display_name="__MSG_maxx__" />
   <UserPref name="raxis_series" display_name="__MSG_raxis_series__"/>
   <UserPref name="raxis_title" display_name="__MSG_raxis_title__"/>
+  <UserPref name="raxis_log_scale" display_name="__MSG_raxis_logscale__"/>
   <UserPref name="_table_query_refresh_interval" display_name="__MSG_tablequeryrefreshinterval__" default_value="300" datatype="enum" required="false">
     <EnumValue value="0" display_value="__MSG_never__" />
     <EnumValue value="60" display_value="1" />
@@ -186,7 +187,11 @@
           vAxes[0] = {};
           vAxes[1] = {};
           vAxes[1]['title'] = ra_title;
-        } 
+        }
+        if ( prefs.getString('raxis_log_scale') != 'null' && prefs.getString('raxis_log_scale') != '' ) {
+          var ra_log_scale = prefs.getBool('raxis_log_scale');
+          vAxes[1]['logScale'] = ra_log_scale;
+        }
       }
 
       var pv = prefs.getBool('pct_view');
