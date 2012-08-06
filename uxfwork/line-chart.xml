@@ -153,6 +153,10 @@
           vAxes[1] = {};
           vAxes[1]['title'] = ra_title;
         } 
+        if ( prefs.getString('raxis_log_scale') != 'null' && prefs.getString('raxis_log_scale') != '' ) {
+          var ra_log_scale = prefs.getBool('raxis_log_scale');
+          vAxes[1]['logScale'] = ra_log_scale;
+        } 
       }
 
       var query = gadgetHelper.createQueryFromPrefs(prefs);
