@@ -76,6 +76,7 @@
   <UserPref name="showpoints" display_name="__MSG_showpoints__" datatype="bool" default_value="true" />
   <UserPref name="raxis_series" display_name="__MSG_raxis_series__"/>
   <UserPref name="raxis_title" display_name="__MSG_raxis_title__"/>
+  <UserPref name="raxis_log_scale" display_name="__MSG_raxis_logscale__"/>
 <!--
   <UserPref name="miny" display_name="__MSG_miny__" />
   <UserPref name="maxy" display_name="__MSG_maxy__" />
@@ -172,7 +173,11 @@
           vAxes[0] = {};
           vAxes[1] = {};
           vAxes[1]['title'] = ra_title;
-        } 
+        }
+        if ( prefs.getString('raxis_log_scale') != 'null' && prefs.getString('raxis_log_scale') != '' ) {
+          var ra_log_scale = prefs.getBool('raxis_log_scale');
+          vAxes[1]['logScale'] = ra_log_scale;
+        }
       }
 
       var query = gadgetHelper.createQueryFromPrefs(prefs);
