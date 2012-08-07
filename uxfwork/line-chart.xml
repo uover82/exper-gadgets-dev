@@ -77,6 +77,7 @@
   <UserPref name="showpoints" display_name="__MSG_showpoints__" datatype="bool" default_value="true"/>
   <UserPref name="raxis_series" display_name="__MSG_raxis_series__"/>
   <UserPref name="raxis_title" display_name="__MSG_raxis_title__"/>
+  <UserPref name="raxis_log_scale" display_name="__MSG_raxis_logscale__"/>
   <UserPref name="_table_query_refresh_interval" display_name="__MSG_tablequeryrefreshinterval__" default_value="300" datatype="enum" required="false">
     <EnumValue value="0" display_value="__MSG_never__" />
     <EnumValue value="60" display_value="1" />
