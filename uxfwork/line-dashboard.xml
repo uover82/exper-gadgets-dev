@@ -12,6 +12,7 @@
     <Require feature="settitle" />
     <Require feature="idi" />
     <Require feature="locked-domain" />
+    <Require feature="setprefs" />
     <Locale messages="http://www.google.com/ig/modules/chart_content/en_ALL.xml" />
     <Locale lang="ar" messages="http://www.google.com/ig/modules/chart_content/ar_ALL.xml" language_direction="rtl" />
     <Locale lang="bg" messages="http://www.google.com/ig/modules/chart_content/bg_ALL.xml" />
