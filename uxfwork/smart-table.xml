@@ -143,7 +143,7 @@
        for ( var i=0;i<data.getNumberOfRows();i++ )
           for ( var j=0;j<data.getNumberOfColumns();j++ )
              if ((v = data.getValue( i,j ))) {
-                if ( j==0 || (j-2)%6==0 && Math.floor((j-2)/6)>0 ) {
+                if ( j==0 || (j-3)%6==0 && Math.floor((j-3)/6)>0 ) {
                    if ( j== 0 ) 
                       table.addRows( 2 );
                    else
@@ -152,7 +152,7 @@
                 }
 
 	              p = data.getProperties( i,j );
-                c = (j-2)%6+2;
+                c = (j-3)%6+3;
                 if (!isNaN(parseFloat(v)) && isFinite(v)) {
                   if (v.indexOf(".") < v.length - 3)
                     v = v.substring(0,v.indexOf(".")+2);
