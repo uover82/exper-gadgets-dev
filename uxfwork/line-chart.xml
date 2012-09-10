@@ -207,7 +207,7 @@
           }
         }
 
-        var query, nqu, nucs, p_cnamx;
+        var query, nqu, nucs, p_cnamx = Number.max_value;
         for ( i=cnamx;i>=0&&p_cnamx>0;i-- ) {
           if ( cnamx==0 ) {
              c = p_cnamx - 1;
