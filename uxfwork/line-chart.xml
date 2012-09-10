@@ -207,15 +207,11 @@
           }
         }
 
-        var query, nqu, nucs, p_cnamx = Number.max_value;
-        for ( i=cnamx;i>=0&&p_cnamx>0;i-- ) {
-          if ( cnamx==0 ) {
-             cnamx = p_cnamx - 1;
-          }
+        var query, nqu, nucs;
+        for ( i=cnamx;i>0;i-- ) {
           nucs = ucs.replace(', Col'+i,'');
           if ( nucs.length<ucs.length&&i<=ec ) {
             ucs = nucs;
-            p_cnamx = cnamx;
             cnamx = i;
             break;
           }
