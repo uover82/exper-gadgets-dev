@@ -221,12 +221,12 @@
         }
         */
 
-        alert ( ':'+ucs );
+        //alert ( ':'+ucs );
 
         for ( i=1;i<=cnamx;i++ )
           ucs = ucs.replace(/, Col[0-9]*i,/g,', Col'+(i-1)+',');
 
-        alert ( '::'+ucs );
+        //alert ( '::'+ucs );
         var nqu = up+'select'+ucs+us;
         prefs.set( '_table_query_url',nqu );
         var query = gadgetHelper.createQueryFromPrefs( prefs );
