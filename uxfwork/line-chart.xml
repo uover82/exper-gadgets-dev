@@ -207,8 +207,8 @@
           }
         }
 
-        var query, nqu, nucs;
-        //alert ( ':'+ucs );
+        /*
+        var nucs;
         //for ( i=1;i<=cnamx;i++ ) {
         for ( i=cnamx;i>0;i-- ) {
           //ucs = ucs.replace( ', Col'+i,', Col'+(i-1) );
@@ -219,11 +219,17 @@
             break;
           }
         }
+        */
 
-        //alert ( '::'+ucs );
-        nqu = up+'select'+ucs+us;
+        alert ( ':'+ucs );
+
+        for ( i=1;i<=cnamx;i++ )
+          ucs = ucs.replace(', Col'+i,', Col'+(i-1));
+
+        alert ( '::'+ucs );
+        var nqu = up+'select'+ucs+us;
         prefs.set( '_table_query_url',nqu );
-        query = gadgetHelper.createQueryFromPrefs( prefs );
+        var query = gadgetHelper.createQueryFromPrefs( prefs );
         query.send( responseHandler );
       }
     }
