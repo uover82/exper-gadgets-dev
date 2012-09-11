@@ -209,6 +209,7 @@
 
         var query, nqu, nucs;
         for ( i=cnamx;i>0;i-- ) {
+          alert( ucs );
           ucs = ucs.replace(', Col'+i,', Col'+(i-1));
 /*
           nucs = ucs.replace(', Col'+i,'');
@@ -220,6 +221,7 @@
 */
         }
 
+        alert ( ucs );
         nqu = up+'select'+ucs+us;
         prefs.set( '_table_query_url',nqu );
         query = gadgetHelper.createQueryFromPrefs( prefs );
