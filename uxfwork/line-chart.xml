@@ -209,7 +209,7 @@
 
         var query, nqu, nucs;
         alert ( ':'+ucs );
-        for ( i=cnamx;i>0;i-- ) {
+        for ( i=0; i<cnamx;i++ ) {
           ucs = ucs.replace(', Col'+i,', Col'+(i-1));
 /*
           nucs = ucs.replace(', Col'+i,'');
