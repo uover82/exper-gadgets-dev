@@ -207,7 +207,6 @@
           }
         }
 
-        /*
         var nucs;
         //for ( i=1;i<=cnamx;i++ ) {
         for ( i=cnamx;i>0;i-- ) {
@@ -219,12 +218,11 @@
             break;
           }
         }
-        */
 
         //alert ( ':'+ucs );
 
-        for ( i=1;i<=cnamx;i++ )
-          ucs = ucs.replace(/, Col[0-9]*i,/g,', Col'+(i-1)+',');
+        //for ( i=1;i<=cnamx;i++ )
+        //  ucs = ucs.replace(/, Col[0-9]*i,/g,', Col'+(i-1)+',');
 
         //alert ( '::'+ucs );
         var nqu = up+'select'+ucs+us;
