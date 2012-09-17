@@ -193,17 +193,29 @@
         var ucs = wqu.substring( wqu.indexOf('select')+6,wqu.indexOf('&dtx') );
         var us = wqu.substring( wqu.indexOf('&dtx'),wqu.length );
         var cna = ucs.replace( / Col/g,'' ).split( ',' );
-
-        for ( i=1;i<cna.length;i++ )
-          ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
+        var cnamx = Math.max.apply( Math,cna );
+        var ec = Number.max_value;
 
         var em = response.getDetailedMessage();
-        alert( em );
+        if ( em.indexOf('does not exist')>=0 ) {
+          var ii=em.indexOf('[Col')+4;
+          if ( ii>=4 ) {
+            var ss = em.substring( ii );
+            var ei = ss.indexOf( ']' );
+            if ( ei>0 )
+              ec = ss.substring( 0,ei );
+          }
+        }
 
-        var nqu = up+'select'+ucs+us;
-        prefs.set( '_table_query_url',nqu );
-        var query = gadgetHelper.createQueryFromPrefs( prefs );
-        query.send( responseHandler );
+        if ( cna.indexOf( ec )) {
+          for ( i=1;i<cna.length;i++ )
+            ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
+
+          var nqu = up+'select'+ucs+us;
+          prefs.set( '_table_query_url',nqu );
+          var query = gadgetHelper.createQueryFromPrefs( prefs );
+          query.send( responseHandler );
+        }
       }
     }
 
