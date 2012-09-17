@@ -223,7 +223,7 @@ var nucs;
 
         //alert ( ':'+ucs );
 
-        for ( i=0;i<cna.length;i++ ) {
+        for ( i=1;i<cna.length;i++ ) {
           ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
           alert( ', Col'+cna[i]+', Col'+(cna[i]-1) );
         }
