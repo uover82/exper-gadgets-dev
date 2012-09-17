@@ -227,20 +227,15 @@
           }
         }
 
-        var query, nqu, nucs;
-        for ( i=cnamx;i>0;i-- ) {
-          nucs = ucs.replace(', Col'+i,'');
-          if ( nucs.length<ucs.length&&i<=ec ) {
-            ucs = nucs;
-            cnamx = i;
-            break;
-          }
-        }
+        if ( cna.indexOf( ec )) {
+          for ( i=1;i<cna.length;i++ )
+            ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
 
-        nqu = up+'select'+ucs+us;
-        prefs.set( '_table_query_url',nqu );
-        query = gadgetHelper.createQueryFromPrefs( prefs );
-        query.send( responseHandler );
+          var nqu = up+'select'+ucs+us;
+          prefs.set( '_table_query_url',nqu );
+          var query = gadgetHelper.createQueryFromPrefs( prefs );
+          query.send( responseHandler );
+        }
       }
     }
 
