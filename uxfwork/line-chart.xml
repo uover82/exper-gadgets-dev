@@ -226,7 +226,7 @@ var nucs;
         for ( i=0;i<cna.length;i++ )
           ucs = ucs.replace(', Col'+cna[i]+',',', Col'+(cna[i]-1)+',');
 
-        //alert ( '::'+ucs );
+        alert ( '::'+ucs );
         var nqu = up+'select'+ucs+us;
         prefs.set( '_table_query_url',nqu );
         var query = gadgetHelper.createQueryFromPrefs( prefs );
