@@ -224,7 +224,7 @@ var nucs;
         //alert ( ':'+ucs );
 
         for ( i=0;i<cna.length;i++ )
-          ucs = ucs.replace(', Col'+cna[i]+',',', Col'+(cna[i]-1)+',');
+          ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
 
         alert ( '::'+ucs );
         var nqu = up+'select'+ucs+us;
