@@ -197,6 +197,9 @@
         for ( i=1;i<cna.length;i++ )
           ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
 
+        var em = response.getDetailedMessage();
+        alert( em );
+
         var nqu = up+'select'+ucs+us;
         prefs.set( '_table_query_url',nqu );
         var query = gadgetHelper.createQueryFromPrefs( prefs );
