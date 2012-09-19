@@ -212,8 +212,8 @@
                     ucs = ucs.replace(', Col'+cna[i],'');
                 //alert( ucs );
               }
+            }
           }
-        }
 
           var nqu = up+'select'+ucs+us;
           prefs.set( '_table_query_url',nqu );
