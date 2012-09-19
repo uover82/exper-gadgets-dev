@@ -206,7 +206,10 @@
               ec = ss.substring( 0,ei );
               if ( cna.indexOf( ec )) {
                 for ( i=1;i<cna.length;i++ )
-                  ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
+                  if ( cna[i]>1 )
+                    ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
+                  else
+                    ucs = ucs.replace(', Col'+cna[i],'');
                 alert( ucs );
               }
           }
