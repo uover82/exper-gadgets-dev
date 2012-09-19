@@ -224,7 +224,7 @@
                 ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
               else
                 ucs = ucs.replace(', Col'+cna[i]+',',', Col'+(cna[i]-1)+',');
-              alert( cna.length+' :: '+ucs );
+              alert( ' :: '+ucs );
             }
             else
               ucs = ucs.replace(', Col'+cna[i],'');
