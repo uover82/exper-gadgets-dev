@@ -230,7 +230,7 @@
                     ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
                   else
                     ucs = ucs.replace(', Col'+cna[i],'');
-                //alert( ucs );
+                alert( ucs );
               }
           }
         }
