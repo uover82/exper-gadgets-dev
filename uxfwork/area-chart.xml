@@ -222,7 +222,7 @@
             if ( cna[i]>1 ) {
               if ( i==cna.length-1 ) {
                 ucs = ucs.replace(', Col'+cna[i]+'$',', Col'+(cna[i]-1));
-                alert( ', Col'+cna[i]+'$'+','+', Col'+(cna[i]-1) );
+                alert( ', Col'+cna[i]+'$'+' : '+', Col'+(cna[i]-1) );
               }
               else
                 ucs = ucs.replace(', Col'+cna[i]+',',', Col'+(cna[i]-1)+',');
