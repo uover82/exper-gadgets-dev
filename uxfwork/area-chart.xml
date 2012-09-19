@@ -235,7 +235,6 @@
                     ucs = ucs.replace(', Col'+cna[i],'');
                 alert( ucs );
               }
-              alert( ec+'::'+ucs );
             }
           }
 
