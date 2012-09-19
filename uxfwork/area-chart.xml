@@ -220,7 +220,7 @@
         if ( em.indexOf('does not exist')>=0 ) {
           for ( i=1;i<cna.length;i++ )
             if ( cna[i]>1 )
-              if ( i==(cna.length-1) )
+              if ( i==cna.length-1 )
                 ucs = ucs.replace(', Col'+cna[i],', Col'+(cna[i]-1));
               else
                 ucs = ucs.replace(', Col'+cna[i]+',',', Col'+(cna[i]-1)+',');
