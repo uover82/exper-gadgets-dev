@@ -218,10 +218,13 @@
 
         var em = response.getDetailedMessage();
         if ( em.indexOf('does not exist')>=0 ) {
+          var re;
           for ( i=1;i<cna.length;i++ )
             if ( cna[i]>1 ) {
-              if ( i==cna.length-1 )
-                ucs = ucs.replace(', Col'+cna[i]+'[^,]',', Col'+(cna[i]-1));
+              if ( i==cna.length-1 ) {
+                re = new RegExp( ', Col'+cna[i]+'$','g' );
+                ucs = ucs.replace( re,', Col'+(cna[i]-1) );
+              }
               else
                 ucs = ucs.replace(', Col'+cna[i]+',',', Col'+(cna[i]-1)+',');
             }
