@@ -120,7 +120,7 @@
     }      
 
     function loadVisualizationAPI() {
-      google.load('visualization', '1', {packages: ['linechart']});
+      google.load('visualization', '1', {packages: ['corechart']});
       google.setOnLoadCallback(init);
     };
 
