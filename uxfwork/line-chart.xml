@@ -7,56 +7,56 @@
       author="Google Engineering"
       author_affiliation="Google Inc."
       author_email="visualization.api+line-chart@gmail.com"
-      screenshot="http://www.google.com/ig/modules/line-chart.png"
-      thumbnail="http://www.google.com/ig/modules/line-chart-thm.png">
+      screenshot="https://www.google.com/ig/modules/line-chart.png"
+      thumbnail="https://www.google.com/ig/modules/line-chart-thm.png">
     <Require feature="settitle" />
     <Require feature="idi" />
     <Require feature="locked-domain" />
     <Require feature="setprefs" />
-   <Locale messages="http://www.google.com/ig/modules/chart_content/en_ALL.xml" />
-    <Locale lang="ar" messages="http://www.google.com/ig/modules/chart_content/ar_ALL.xml" language_direction="rtl" />
-    <Locale lang="bg" messages="http://www.google.com/ig/modules/chart_content/bg_ALL.xml" />
-    <Locale lang="ca" messages="http://www.google.com/ig/modules/chart_content/ca_ALL.xml" />
-    <Locale lang="cs" messages="http://www.google.com/ig/modules/chart_content/cs_ALL.xml" />
-    <Locale lang="da" messages="http://www.google.com/ig/modules/chart_content/da_ALL.xml" />
-    <Locale lang="de" messages="http://www.google.com/ig/modules/chart_content/de_ALL.xml" />
-    <Locale lang="el" messages="http://www.google.com/ig/modules/chart_content/el_ALL.xml" />
-    <Locale lang="en-GB" messages="http://www.google.com/ig/modules/chart_content/en_GB.xml" />
-    <Locale lang="es" messages="http://www.google.com/ig/modules/chart_content/es_ALL.xml" />
-    <Locale lang="et" messages="http://www.google.com/ig/modules/chart_content/et_ALL.xml" />
-    <Locale lang="fi" messages="http://www.google.com/ig/modules/chart_content/fi_ALL.xml" />
-    <Locale lang="fr" messages="http://www.google.com/ig/modules/chart_content/fr_ALL.xml" />
-    <Locale lang="hi" messages="http://www.google.com/ig/modules/chart_content/hi_ALL.xml" />
-    <Locale lang="hr" messages="http://www.google.com/ig/modules/chart_content/hr_ALL.xml" />
-    <Locale lang="hu" messages="http://www.google.com/ig/modules/chart_content/hu_ALL.xml" />
-    <Locale lang="hy" messages="http://www.google.com/ig/modules/chart_content/hy_ALL.xml" />
-    <Locale lang="id" messages="http://www.google.com/ig/modules/chart_content/id_ALL.xml" />
-    <Locale lang="is" messages="http://www.google.com/ig/modules/chart_content/is_ALL.xml" />
-    <Locale lang="it" messages="http://www.google.com/ig/modules/chart_content/it_ALL.xml" />
-    <Locale lang="iw" messages="http://www.google.com/ig/modules/chart_content/iw_ALL.xml" language_direction="rtl" />
-    <Locale lang="ja" messages="http://www.google.com/ig/modules/chart_content/ja_ALL.xml" />
-    <Locale lang="ko" messages="http://www.google.com/ig/modules/chart_content/ko_ALL.xml" />
-    <Locale lang="lt" messages="http://www.google.com/ig/modules/chart_content/lt_ALL.xml" />
-    <Locale lang="lv" messages="http://www.google.com/ig/modules/chart_content/lv_ALL.xml" />
-    <Locale lang="ms" messages="http://www.google.com/ig/modules/chart_content/ms_ALL.xml" />
-    <Locale lang="nl" messages="http://www.google.com/ig/modules/chart_content/nl_ALL.xml" />
-    <Locale lang="no" messages="http://www.google.com/ig/modules/chart_content/no_ALL.xml" />
-    <Locale lang="pl" messages="http://www.google.com/ig/modules/chart_content/pl_ALL.xml" />
-    <Locale lang="pt-BR" messages="http://www.google.com/ig/modules/chart_content/pt_BR.xml" />
-    <Locale lang="pt-PT" messages="http://www.google.com/ig/modules/chart_content/pt_PT.xml" />
-    <Locale lang="ro" messages="http://www.google.com/ig/modules/chart_content/ro_ALL.xml" />
-    <Locale lang="ru" messages="http://www.google.com/ig/modules/chart_content/ru_ALL.xml" />
-    <Locale lang="sl" messages="http://www.google.com/ig/modules/chart_content/sl_ALL.xml" />
-    <Locale lang="sk" messages="http://www.google.com/ig/modules/chart_content/sk_ALL.xml" />
-    <Locale lang="sr" messages="http://www.google.com/ig/modules/chart_content/sr_ALL.xml" />
-    <Locale lang="sv" messages="http://www.google.com/ig/modules/chart_content/sv_ALL.xml" />
-    <Locale lang="th" messages="http://www.google.com/ig/modules/chart_content/th_ALL.xml" />
-    <Locale lang="tl" messages="http://www.google.com/ig/modules/chart_content/tl_ALL.xml" />
-    <Locale lang="tr" messages="http://www.google.com/ig/modules/chart_content/tr_ALL.xml" />
-    <Locale lang="uk" messages="http://www.google.com/ig/modules/chart_content/uk_ALL.xml" />
-    <Locale lang="vi" messages="http://www.google.com/ig/modules/chart_content/vi_ALL.xml" />
-    <Locale lang="zh-CN" messages="http://www.google.com/ig/modules/chart_content/zh_CN.xml" />
-    <Locale lang="zh-TW" messages="http://www.google.com/ig/modules/chart_content/zh_TW.xml" />
+   <Locale messages="https://www.google.com/ig/modules/chart_content/en_ALL.xml" />
+    <Locale lang="ar" messages="https://www.google.com/ig/modules/chart_content/ar_ALL.xml" language_direction="rtl" />
+    <Locale lang="bg" messages="https://www.google.com/ig/modules/chart_content/bg_ALL.xml" />
+    <Locale lang="ca" messages="https://www.google.com/ig/modules/chart_content/ca_ALL.xml" />
+    <Locale lang="cs" messages="https://www.google.com/ig/modules/chart_content/cs_ALL.xml" />
+    <Locale lang="da" messages="https://www.google.com/ig/modules/chart_content/da_ALL.xml" />
+    <Locale lang="de" messages="https://www.google.com/ig/modules/chart_content/de_ALL.xml" />
+    <Locale lang="el" messages="https://www.google.com/ig/modules/chart_content/el_ALL.xml" />
+    <Locale lang="en-GB" messages="https://www.google.com/ig/modules/chart_content/en_GB.xml" />
+    <Locale lang="es" messages="https://www.google.com/ig/modules/chart_content/es_ALL.xml" />
+    <Locale lang="et" messages="https://www.google.com/ig/modules/chart_content/et_ALL.xml" />
+    <Locale lang="fi" messages="https://www.google.com/ig/modules/chart_content/fi_ALL.xml" />
+    <Locale lang="fr" messages="https://www.google.com/ig/modules/chart_content/fr_ALL.xml" />
+    <Locale lang="hi" messages="https://www.google.com/ig/modules/chart_content/hi_ALL.xml" />
+    <Locale lang="hr" messages="https://www.google.com/ig/modules/chart_content/hr_ALL.xml" />
+    <Locale lang="hu" messages="https://www.google.com/ig/modules/chart_content/hu_ALL.xml" />
+    <Locale lang="hy" messages="https://www.google.com/ig/modules/chart_content/hy_ALL.xml" />
+    <Locale lang="id" messages="https://www.google.com/ig/modules/chart_content/id_ALL.xml" />
+    <Locale lang="is" messages="https://www.google.com/ig/modules/chart_content/is_ALL.xml" />
+    <Locale lang="it" messages="https://www.google.com/ig/modules/chart_content/it_ALL.xml" />
+    <Locale lang="iw" messages="https://www.google.com/ig/modules/chart_content/iw_ALL.xml" language_direction="rtl" />
+    <Locale lang="ja" messages="https://www.google.com/ig/modules/chart_content/ja_ALL.xml" />
+    <Locale lang="ko" messages="https://www.google.com/ig/modules/chart_content/ko_ALL.xml" />
+    <Locale lang="lt" messages="https://www.google.com/ig/modules/chart_content/lt_ALL.xml" />
+    <Locale lang="lv" messages="https://www.google.com/ig/modules/chart_content/lv_ALL.xml" />
+    <Locale lang="ms" messages="https://www.google.com/ig/modules/chart_content/ms_ALL.xml" />
+    <Locale lang="nl" messages="https://www.google.com/ig/modules/chart_content/nl_ALL.xml" />
+    <Locale lang="no" messages="https://www.google.com/ig/modules/chart_content/no_ALL.xml" />
+    <Locale lang="pl" messages="https://www.google.com/ig/modules/chart_content/pl_ALL.xml" />
+    <Locale lang="pt-BR" messages="https://www.google.com/ig/modules/chart_content/pt_BR.xml" />
+    <Locale lang="pt-PT" messages="https://www.google.com/ig/modules/chart_content/pt_PT.xml" />
+    <Locale lang="ro" messages="https://www.google.com/ig/modules/chart_content/ro_ALL.xml" />
+    <Locale lang="ru" messages="https://www.google.com/ig/modules/chart_content/ru_ALL.xml" />
+    <Locale lang="sl" messages="https://www.google.com/ig/modules/chart_content/sl_ALL.xml" />
+    <Locale lang="sk" messages="https://www.google.com/ig/modules/chart_content/sk_ALL.xml" />
+    <Locale lang="sr" messages="https://www.google.com/ig/modules/chart_content/sr_ALL.xml" />
+    <Locale lang="sv" messages="https://www.google.com/ig/modules/chart_content/sv_ALL.xml" />
+    <Locale lang="th" messages="https://www.google.com/ig/modules/chart_content/th_ALL.xml" />
+    <Locale lang="tl" messages="https://www.google.com/ig/modules/chart_content/tl_ALL.xml" />
+    <Locale lang="tr" messages="https://www.google.com/ig/modules/chart_content/tr_ALL.xml" />
+    <Locale lang="uk" messages="https://www.google.com/ig/modules/chart_content/uk_ALL.xml" />
+    <Locale lang="vi" messages="https://www.google.com/ig/modules/chart_content/vi_ALL.xml" />
+    <Locale lang="zh-CN" messages="https://www.google.com/ig/modules/chart_content/zh_CN.xml" />
+    <Locale lang="zh-TW" messages="https://www.google.com/ig/modules/chart_content/zh_TW.xml" />
   </ModulePrefs>
 
   <UserPref name="_table_query_url" display_name="__MSG_tablequeryurl__" required="true" />
@@ -91,10 +91,10 @@
 
   <Content type="html"><![CDATA[
 
-  <div id="loading"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+  <div id="loading"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
   <div id="chart"></div>
 
-  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
   <script type="text/javascript">
     _IG_RegisterOnloadHandler(loadVisualizationAPI);
@@ -153,11 +153,11 @@
           vAxes[0] = {};
           vAxes[1] = {};
           vAxes[1]['title'] = ra_title;
-        } 
+        }
         if ( prefs.getString('raxis_log_scale') != 'null' && prefs.getString('raxis_log_scale') != '' ) {
           var ra_log_scale = prefs.getBool('raxis_log_scale');
           vAxes[1]['logScale'] = ra_log_scale;
-        } 
+        }
       }
 
       var query = gadgetHelper.createQueryFromPrefs(prefs);
@@ -227,11 +227,11 @@
     function mouseOver(e) {
       lineChart.setSelection([e]);
     };
-  
+ 
     function mouseOut(e) {
       setTimeout("lineChart.setSelection([{'row': null, 'column': null}])", 3000);
     };
-    
+   
     function formatTimeXAxis(data) {
       // format the x-axis in time-only format.
       var v;
