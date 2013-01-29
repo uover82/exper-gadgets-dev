@@ -155,8 +155,10 @@
                 c = (j-2)%6+2;
                 alert( ':'+v );
                 if (!isNaN(parseFloat(v)) && isFinite(v)) {
-                  if (v.indexOf(".") < v.length - 3)
+                  if (v.indexOf(".") < v.length - 3) {
+                    alert( v.indexOf(".") + ':' + v.length);
                     v = v.substring(0,v.indexOf(".")+2);
+                  }
                 }
                 table.setCell( r,c,v,null,p );
                 alert( '::'+v );
