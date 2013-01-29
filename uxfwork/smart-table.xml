@@ -153,11 +153,13 @@
 
 	              p = data.getProperties( i,j );
                 c = (j-2)%6+2;
+                alert( ':'+v );
                 if (!isNaN(parseFloat(v)) && isFinite(v)) {
                   if (v.indexOf(".") < v.length - 3)
                     v = v.substring(0,v.indexOf(".")+2);
                 }
                 table.setCell( r,c,v,null,p );
+                alert( '::'+v );
              }
 
        return table;
