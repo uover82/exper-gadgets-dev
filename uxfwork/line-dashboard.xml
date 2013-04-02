@@ -230,7 +230,7 @@
 
         // Define a Line chart
         var lineChart = new google.visualization.ChartWrapper({
-          'chartType': 'window.LineChart',
+          'chartType': 'LineChart',
           'containerId': 'chart',
           'options': options,
           'dataTable' : dataTable
