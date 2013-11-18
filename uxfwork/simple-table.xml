@@ -27,12 +27,7 @@
   <UserPref name="hl2column" display_name="__MSG_hl2column__" required="false" />
   <UserPref name="hl2floor" display_name="__MSG_hl2floor__" required="false" />
   <UserPref name="hl2ceiling" display_name="__MSG_hl2ceiling__" required="false" />
-  <UserPref name="hl3column" display_name="__MSG_hl3column__" required="false" />
-  <UserPref name="hl3floor" display_name="__MSG_hl3floor__" required="false" />
-  <UserPref name="hl3ceiling" display_name="__MSG_hl3ceiling__" required="false" />
-  <UserPref name="hl4column" display_name="__MSG_hl4column__" required="false" />
-  <UserPref name="hl4floor" display_name="__MSG_hl4floor__" required="false" />
-  <UserPref name="hl4ceiling" display_name="__MSG_hl4ceiling__" required="false" />
+  <UserPref name="sortcolumn" display_name="__MSG_sort_column__" required="false" />
   <!--
   This is a sample gadget, that uses the Google Visualization API to read data
   from a data source, and displays it as an html table.
@@ -104,12 +99,8 @@
       var hl2column = prefs.getInt('hl2column');
       var hl2floor = prefs.getFloat('hl2floor');
       var hl2ceiling = prefs.getFloat('hl2ceiling');
-      var hl3column = prefs.getInt('hl3column');
-      var hl3floor = prefs.getFloat('hl3floor');
-      var hl3ceiling = prefs.getFloat('hl3ceiling');
-      var hl4column = prefs.getInt('hl4column');
-      var hl4floor = prefs.getFloat('hl4floor');
-      var hl4ceiling = prefs.getFloat('hl4ceiling');
+
+      options['sortColumn'] = prefs.getInt('sortcolumn');
 
       var url = prefs.getString('_table_query_url');
       if ( url.indexOf('_sum') && ( csds=( url.indexOf( '.csv' )))) {
@@ -122,9 +113,7 @@
       }
 
       colorFormatRows( data,hl1column,hl1floor,hl1ceiling,
-                       hl2column,hl2floor,hl2ceiling,
-                       hl3column,hl3floor,hl3ceiling,
-                       hl4column,hl4floor,hl4ceiling );
+                       hl2column,hl2floor,hl2ceiling );
 
       table.draw(data, options);
 
@@ -136,8 +125,7 @@
      * Color format table rows using a gradient scale which is an average
      * of 1-4 specified columns.
      */
-    function colorFormatRows( data,c1,c1_hlfloor,c1_hlceiling,c2,c2_hlfloor,c2_hlceiling,
-                              c3,c3_hlfloor,c3_hlceiling,c4,c4_hlfloor,c4_hlceiling ) {
+    function colorFormatRows( data,c1,c1_hlfloor,c1_hlceiling,c2,c2_hlfloor,c2_hlceiling ) {
 
       function findRatios( data,c,c_hlfloor,c_hlceiling ) {
         var c_ratios = [];
@@ -163,28 +151,10 @@
         var c1_ratios = findRatios( data,c1,c1_hlfloor,c1_hlceiling );
         if ( c2!=null ) {
           var c2_ratios = findRatios( data,c2,c2_hlfloor,c2_hlceiling );
-          if ( c3!=null ) {
-            var c3_ratios = findRatios( data,c3,c3_hlfloor,c3_hlceiling );
-            if ( c4!=null ) {
-              var c4_ratios = findRatios( data,c4,c4_hlfloor,c4_hlceiling );
-              for ( var i = 0;i<data.getNumberOfRows();i++ )
-                ratios[i] = ( c1_ratios[i]+c2_ratios[i]+c3_ratios[i]+c4_ratios[i] )/4;
-              hlfloor = ( c1_hlfloor+c2_hlfloor+c3_hlfloor+c4_hlfloor )/4;
-              hlceiling = ( c1_hlceiling+c2_hlceiling+c3_hlceiling+c4_hlceiling )/4;
-            }
-            else {
-              for ( var i = 0;i<data.getNumberOfRows();i++ )
-                ratios[i] = ( c1_ratios[i]+c2_ratios[i]+c3_ratios[i] )/3;
-              hlfloor = ( c1_hlfloor+c2_hlfloor+c3_hlfloor )/3;
-              hlceiling = ( c1_hlceiling+c2_hlceiling+c3_hlceiling )/3;
-            }
-          }
-          else {
-            for ( var i = 0;i<data.getNumberOfRows();i++ )
-              ratios[i] = ( c1_ratios[i]+c2_ratios[i] )/2;
-            hlfloor = ( c1_hlfloor+c2_hlfloor )/2;
-            hlceiling = ( c1_hlceiling+c2_hlceiling )/2;
-          }
+          for ( var i = 0;i<data.getNumberOfRows();i++ )
+            ratios[i] = ( c1_ratios[i]+c2_ratios[i] )/2;
+          hlfloor = ( c1_hlfloor+c2_hlfloor )/2;
+          hlceiling = ( c1_hlceiling+c2_hlceiling )/2;
         }
         else {
           ratios = c1_ratios;
