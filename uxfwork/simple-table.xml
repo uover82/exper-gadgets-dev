@@ -117,7 +117,7 @@
       if ( sortcolumn!=null && sortcolumn>=0 ) {
         var scid = data.addColumn( 'number','sc' );
         for ( var i = 0;i<data.getNumberOfRows();i++ ) {
-          data.setValue( i,scid,data.getValue( i,sortcolumn ));
+          data.setValue( i,scid,data.getValue(i,sortcolumn)*1 );
         }
         data.sort( scid );
         data.removeColumn( scid );
