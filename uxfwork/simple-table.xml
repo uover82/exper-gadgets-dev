@@ -99,7 +99,7 @@
       var hl2column = prefs.getInt('hl2column');
       var hl2floor = prefs.getFloat('hl2floor');
       var hl2ceiling = prefs.getFloat('hl2ceiling');
-      var sortcolumn = prefs.getInt('sortcolumn');
+      var sortcolumn = prefs.getFloat('sortcolumn');
 
       var url = prefs.getString('_table_query_url');
       if ( url.indexOf('_sum') && ( csds=( url.indexOf( '.csv' )))) {
