@@ -121,7 +121,7 @@
           //data.setValue( i,scid,data.getValue(i,sortcolumn) );
         }
         //data.sort( scid );
-        data.removeColumn( scid );
+        //data.removeColumn( scid );
       }
 
       colorFormatRows( data,hl1column,hl1floor,hl1ceiling,
