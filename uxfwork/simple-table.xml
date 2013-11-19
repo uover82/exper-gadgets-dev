@@ -116,12 +116,9 @@
        */
       if ( sortcolumn!=null && sortcolumn>=0 ) {
         var scid = data.addColumn( 'number','sc' );
-        console.log( sortcolumn );
-        for ( var i = 0;i<data.getNumberOfRows();i++ ) {
-          console.log( data.getValue( i,sortcolumn ));
-          //data.setValue( i,scid,data.getValue( i,sortcolumn ));
-        }
-        //data.sort( scid );
+        for ( var i = 0;i<data.getNumberOfRows();i++ )
+          data.setValue( i,scid,data.getValue( i,sortcolumn ));
+        data.sort( scid );
         data.removeColumn( scid );
       }
 
