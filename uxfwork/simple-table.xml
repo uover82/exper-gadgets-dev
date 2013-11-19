@@ -116,8 +116,9 @@
        */
       if ( sortcolumn!=null && sortcolumn>=0 ) {
         var scid = data.addColumn( 'number' );
-        for ( var i=1;i<data.getNumberOfRows();i++ ) {
+        for ( var i=0;i<data.getNumberOfRows();i++ ) {
           console.log( data.getValue(i,sortcolumn) );
+          data.setProperties( i,scid,data.getProperties(i,sortcolumn) );
           data.setValue( i,scid,data.getValue(i,sortcolumn) );
         }
 
