@@ -115,16 +115,13 @@
        * Numerically sort datasource by a specified column
        */
       if ( sortcolumn!=null && sortcolumn>=0 ) {
-        console.log( 'here' );
-      /*
         var scid = data.addColumn( 'number','sc' );
         for ( var i = 0;i<data.getNumberOfRows();i++ ) {
           console.log( data.getValue( i,sortcolumn ));
-          data.setValue( i,scid,data.getValue( i,sortcolumn ));
+          //data.setValue( i,scid,data.getValue( i,sortcolumn ));
         }
-        data.sort( scid );
+        //data.sort( scid );
         data.removeColumn( scid );
-        */
       }
 
       colorFormatRows( data,hl1column,hl1floor,hl1ceiling,
