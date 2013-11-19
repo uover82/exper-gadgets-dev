@@ -119,7 +119,7 @@
         for ( var i=0;i<data.getNumberOfRows();i++ ) {
           console.log( data.getValue(i,sortcolumn) );
           data.setProperties( i,scid,data.getProperties(i,sortcolumn) );
-          data.setValue( i,scid,data.getValue(i,sortcolumn) );
+          //data.setValue( i,scid,data.getValue(i,sortcolumn) );
         }
 
         data.sort( {column:scid,desc:true} );
