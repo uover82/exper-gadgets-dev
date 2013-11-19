@@ -118,8 +118,9 @@
         var scid = data.addColumn( 'number' );
         for ( var i=0;i<data.getNumberOfRows();i++ ) {
           console.log( data.getValue(i,sortcolumn) );
-          //data.setValue( i,scid,data.getValue(i,sortcolumn) );
+          data.setValue( i,scid,data.getValue(i,sortcolumn) );
         }
+
         data.sort( {column:scid,desc:true} );
         data.removeColumn( scid );
       }
@@ -178,17 +179,17 @@
         formatter.addGradientRange( hlfloor,hlceiling,'black','white','gold' );
 
         var cid = data.addColumn( 'number','hl' );
-	var range = hlceiling-hlfloor;
+        var range = hlceiling-hlfloor;
         for ( var i = 0;i<data.getNumberOfRows();i++ )
           data.setValue( i,cid,ratios[i]*range );
         formatter.format( data,cid );
 
-	var p;
+        var p;
         for ( var i=0;i<data.getNumberOfRows();i++ ) {
           p = data.getProperties( i,cid );
           for ( var j=0;j<data.getNumberOfColumns();j++ )
-	    data.setProperties( i,j,p );
-  	}
+            data.setProperties( i,j,p );
+        }
 
         data.removeColumn( cid );
       }
