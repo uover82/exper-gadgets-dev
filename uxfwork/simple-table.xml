@@ -116,10 +116,8 @@
        */
       if ( sortcolumn!=null && sortcolumn>=0 ) {
         var scid = data.addColumn( 'number' );
-        for ( var i=0;i<data.getNumberOfRows();i++ ) {
-          console.log( Math.floor(data.getValue(i,sortcolumn)) );
+        for ( var i=0;i<data.getNumberOfRows();i++ )
           data.setValue( i,scid,Math.floor(data.getValue(i,sortcolumn)) );
-        }
 
         data.sort( {column:scid,desc:true} );
         data.removeColumn( scid );
