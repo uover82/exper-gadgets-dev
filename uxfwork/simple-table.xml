@@ -120,7 +120,7 @@
           console.log( data.getValue(i,sortcolumn) );
           data.setValue( i,scid,data.getValue(i,sortcolumn) );
         }
-        data.sort( scid );
+        data.sort( { column:scid,desc:true } );
         //data.removeColumn( scid );
       }
 
