@@ -121,7 +121,7 @@
           data.setCell( i,scid,data.getValue(i,sortcolumn) );
         }
         //data.sort( scid );
-        data.sort( { column:scid,desc:true } );
+        //data.sort( { column:scid,desc:true } );
         data.removeColumn( scid );
       }
 
