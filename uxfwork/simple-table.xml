@@ -115,7 +115,7 @@
        * Numerically sort datasource by a specified column
        */
       if ( sortcolumn!=null && sortcolumn>=0 ) {
-        var scid = data.addColumn( 'number','sc' );
+        var scid = data.addColumn( 'number' );
         var n;
         for ( var i=0;i<data.getNumberOfRows();i++ ) {
           console.log( data.getValue(i,sortcolumn) );
