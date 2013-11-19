@@ -117,8 +117,8 @@
       if ( sortcolumn!=null && sortcolumn>=0 ) {
         var scid = data.addColumn( 'number' );
         for ( var i=0;i<data.getNumberOfRows();i++ ) {
-          console.log( data.getColumnType(sortcolumn)+':'+data.getValue(i,sortcolumn).valueOf() );
-          //data.setValue( i,scid,data.getValue(i,sortcolumn).valueOf() );
+          console.log( new Number(data.getValue(i,sortcolumn)) );
+          //data.setValue( i,scid,new Number(data.getValue(i,sortcolumn)) );
         }
 
         data.sort( {column:scid,desc:true} );
