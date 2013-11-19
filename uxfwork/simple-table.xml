@@ -120,11 +120,11 @@
         for ( var i=0;i<data.getNumberOfRows();i++ ) {
           n = data.getValue( i,sortcolumn );
           console.log( n );
-          data.setValue( i,scid,n );
+          //data.setValue( i,scid,n );
         }
         //data.sort( scid );
         //data.sort( { column:scid,desc:true } );
-        //data.removeColumn( scid );
+        data.removeColumn( scid );
       }
 
       colorFormatRows( data,hl1column,hl1floor,hl1ceiling,
