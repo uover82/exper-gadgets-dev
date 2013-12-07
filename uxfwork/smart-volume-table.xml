@@ -137,7 +137,8 @@
        table.addColumn( 'string','Alert' );
        table.addColumn( 'string','Max Delta' );
        table.addColumn( 'string','Threshold' );
-
+       table.addColumn( 'string','Max Volume' );
+       
        var v, r, c;
        // pretty format rows/columns in a new table
        for ( var i=0;i<data.getNumberOfRows();i++ )
