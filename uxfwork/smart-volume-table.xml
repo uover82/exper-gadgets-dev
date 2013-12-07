@@ -110,7 +110,8 @@
           valid = 1;
           for ( var j=0;j<data.getNumberOfColumns()&&valid;j++ )
           if (data.getValue( i,j ))
-             data.setValue( i,cid,Math.floor((j-2)/2) );
+             data.setValue( i,cid,Math.floor((j-2)/5) );
+             //data.setValue( i,cid,Math.floor((j-2)/2) );
              //data.setValue( i,cid,Math.floor((j-2)/3) );
           else
              valid = 0;
@@ -134,13 +135,16 @@
        table.addColumn( 'string','End Time' );
        table.addColumn( 'string','User' );
        table.addColumn( 'string','Alert' );
+       table.addColumn( 'string','Max Delta' );
+       table.addColumn( 'string','Threshold' );
 
        var v, r, c;
        // pretty format rows/columns in a new table
        for ( var i=0;i<data.getNumberOfRows();i++ )
           for ( var j=0;j<data.getNumberOfColumns();j++ )
              if ((v = data.getValue( i,j ))) {
-                if ( j==0 || (j-2)%2==0 && Math.floor((j-2)/2)>0 ) {
+                if ( j==0 || (j-2)%5==0 && Math.floor((j-2)/5)>0 ) {
+                //if ( j==0 || (j-2)%2==0 && Math.floor((j-2)/2)>0 ) {
                    if ( j== 0 ) 
                       table.addRows( 2 );
                    else
@@ -150,7 +154,8 @@
 
 	        p = data.getProperties( i,j );
                 if (j > 0)
-                  c = (j-2)%2+2;
+                  c = (j-2)%5+2;
+                  //c = (j-2)%2+2;
                 else
                   c = 0;
                 table.setCell( r,c,v,null,p );
