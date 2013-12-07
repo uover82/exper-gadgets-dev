@@ -159,6 +159,10 @@
                   //c = (j-2)%2+2;
                 else
                   c = 0;
+                if (!isNaN(parseFloat(v)) && isFinite(v)) {
+                  if ( v.indexOf(".") >= 0 && (v.indexOf(".") < v.length - 3))
+                    v = v.substring(0,v.indexOf(".")+2);
+                }
                 table.setCell( r,c,v,null,p );
              }
 
