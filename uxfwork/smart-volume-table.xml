@@ -135,8 +135,8 @@
        table.addColumn( 'string','End Time' );
        table.addColumn( 'string','User' );
        table.addColumn( 'string','Alert' );
-       table.addColumn( 'string','Max Delta' );
-       table.addColumn( 'string','Threshold' );
+       table.addColumn( 'string','Max Delta (%)' );
+       table.addColumn( 'string','Threshold (%)' );
        table.addColumn( 'string','Max Volume' );
        
        var v, r, c;
