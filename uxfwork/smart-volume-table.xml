@@ -154,7 +154,7 @@
                 }
 
 	        p = data.getProperties( i,j );
-                if (j > 05
+                if (j > 0)
                   c = (j-2)%2+2;
                   //c = (j-2)%2+2;
                 else
