@@ -161,6 +161,7 @@
         
         var c1_ratios = findRatios( data,c1,c1_hlfloor,c1_hlceiling );
         if ( c2!=null ) {
+          console.log( 'here:'+c2 );
           var c2_ratios = findRatios( data,c2,c2_hlfloor,c2_hlceiling );
           for ( var i = 0;i<data.getNumberOfRows();i++ )
             ratios[i] = ( c1_ratios[i]+c2_ratios[i]/10 )/2;
