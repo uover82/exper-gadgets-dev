@@ -173,6 +173,8 @@
           hlceiling = c1_hlceiling;
         }
 
+        console.log ( 'f:' + hlfloor + ' c:' + hlceiling );
+
         var formatter = new google.visualization.ColorFormat();
         formatter.addGradientRange( hlfloor,hlceiling,'black','white','gold' );
 
