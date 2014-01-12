@@ -139,7 +139,7 @@
     function colorFormatRows( data,c1,c1_hlfloor,c1_hlceiling,c2,c2_hlfloor,c2_hlceiling ) {
 
       function findRatios( data,c,c_hlfloor,c_hlceiling ) {
-        console.log( 'here );
+        console.log( 'here' );
         var c_ratios = [];
         var c_range = c_hlceiling-c_hlfloor;
         var v;
