@@ -181,11 +181,6 @@
         var range = hlceiling-hlfloor;
         for ( var i = 0;i<data.getNumberOfRows();i++ ) {
           data.setValue( i,cid,ratios[i]*range);
-          /**
-          data.setValue( i,cid,Math.floor( ratios[i]*range ));
-          console.log ( 'f:' + hlfloor + ' c:' + hlceiling + ' v:' + Math.floor( ratios[i]*range ));
-          **/
-          console.log ( 'f:' + hlfloor + ' c:' + hlceiling + ' v:' + Math.floor( ratios[i]*range ));
           console.log ( 'f:' + hlfloor + ' c:' + hlceiling + ' v:' + ratios[i]*range);
         }
         formatter.format( data,cid );
