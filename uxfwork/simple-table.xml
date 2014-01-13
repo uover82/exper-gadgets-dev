@@ -164,8 +164,12 @@
           var c2_ratios = findRatios( data,c2,c2_hlfloor,c2_hlceiling );
           for ( var i = 0;i<data.getNumberOfRows();i++ )
             ratios[i] = ( c1_ratios[i]+c2_ratios[i]/10 )/2;
+          hlfloor = Math.floor( (c1_hlfloor+c2_hlfloor/10)/2 );
+          hlceiling = Math.floor ( (c1_hlceiling+c2_hlceiling/10)/2 );
+          /**
           hlfloor = ( c1_hlfloor+c2_hlfloor/10 )/2;
           hlceiling = ( c1_hlceiling+c2_hlceiling/10 )/2;
+          **/
         }
         else {
           ratios = c1_ratios;
