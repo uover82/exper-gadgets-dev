@@ -163,7 +163,7 @@
         if ( c2!=null ) {
           var c2_ratios = findRatios( data,c2,c2_hlfloor,c2_hlceiling );
           for ( var i = 0;i<data.getNumberOfRows();i++ )
-            ratios[i] = Math.floor ( (c1_ratios[i]+c2_ratios[i]/10 )/2 );
+            ratios[i] = Math.floor (c1_ratios[i]+c2_ratios[i]/10 )/2;
           hlfloor = ( c1_hlfloor+c2_hlfloor/10 )/2;
           hlceiling = ( c1_hlceiling+c2_hlceiling/10 )/2;
         }
@@ -180,8 +180,8 @@
         var cid = data.addColumn( 'number','hl' );
         var range = hlceiling-hlfloor;
         for ( var i = 0;i<data.getNumberOfRows();i++ ) {
-          data.setValue( i,cid,ratios[i]*range );
-          console.log ( 'f:' + hlfloor + ' c:' + hlceiling + ' v:' + ratios[i]*range );
+          data.setValue( i,cid,Math.floor(ratios[i]*range ));
+          console.log ( 'f:' + hlfloor + ' c:' + hlceiling + ' v:' + Math.floor( ratios[i]*range ));
         }
         formatter.format( data,cid );
 
