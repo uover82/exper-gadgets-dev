@@ -163,9 +163,9 @@
         if ( c2!=null ) {
           var c2_ratios = findRatios( data,c2,c2_hlfloor,c2_hlceiling );
           for ( var i = 0;i<data.getNumberOfRows();i++ )
-            ratios[i] = ( c1_ratios[i]+c2_ratios[i]/10 )/1;
-          hlfloor = ( c1_hlfloor+c2_hlfloor/10 )/1;
-          hlceiling = ( c1_hlceiling+c2_hlceiling/10 )/1;
+            ratios[i] = ( c1_ratios[i]+c2_ratios[i]/2 )/2;
+          hlfloor = ( c1_hlfloor+c2_hlfloor/10 )/2;
+          hlceiling = ( c1_hlceiling+c2_hlceiling/2 )/2;
         }
         else {
           ratios = c1_ratios;
