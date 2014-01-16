@@ -180,10 +180,8 @@
         var cid = data.addColumn( 'number','hl' );
         var range = hlceiling-hlfloor;
         console.log( 'f:'+hlfloor+' c:'+hlceiling );
-        for ( var i = 0;i<data.getNumberOfRows();i++ ) {
+        for ( var i = 0;i<data.getNumberOfRows();i++ )
           data.setValue( i,cid,ratios[i]*range );
-          console.log ( 'i:' + i + ' v:' + ratios[i]*range );
-        }
         formatter.format( data,cid );
 
         var p;
